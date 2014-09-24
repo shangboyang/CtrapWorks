@@ -698,70 +698,70 @@
     /**
      * 唤醒及下载控制
      */
-    /*
-     Mkt.Wake = (function () {
 
-     var CTRIP_PROTOCOL = "ctrip://wireless";  // Ctrip唤醒协议
+    Mkt.Wake = (function () {
 
-     var getUrlParam = Mkt.Utils.getUrlParam,
-     getUa = Mkt.Utils.getUa,
-     commonStore = Mkt.Store.CommonStore.getInstance(),
-     dom = Mkt.Dom;
+        var CTRIP_PROTOCOL = "ctrip://wireless";  // Ctrip唤醒协议
 
-     var downAppFlag = getUrlParam && getUrlParam("", "downapp"),
-     openAppFlag = getUrlParam && getUrlParam("", "openapp"),
-     isAndroid = getUa && getUa().isAndroid,  // Android app
-     isApple = getUa && getUa().isAndroid;    // Apple app
+        var getUrlParam = Mkt.Utils.getUrlParam,
+            getUa = Mkt.Utils.getUa,
+            commonStore = Mkt.Store.CommonStore.getInstance(),
+            dom = Mkt.Dom;
 
-     function openApp (ctripUrl) {
-     var ctripUrl = "ctrip://wireless/?alianceID=1&ouID=123&sID=4&sourceid=55558892&TelePhone=4006707181";
-     console.log("123");
-     var ifr = document.createElement("iframe");
-     ifr.className = "iOpen";
-     ifr.style.display = "none";
-     document.body.appendChild(ifr);
-     ifr.src = ctripUrl;
-     }
-     openApp();
-     if (openAppFlag && downAppFlag) {
-     //优先执行唤醒
+        var downAppFlag = getUrlParam && getUrlParam("", "downapp"),
+            openAppFlag = getUrlParam && getUrlParam("", "openapp"),
+            isAndroid = getUa && getUa().isAndroid,  // Android app
+            isApple = getUa && getUa().isAndroid;    // Apple app
 
-     } else if (openAppFlag) {
+        function openApp (ctripUrl) {
+            var ctripUrl = "ctrip://wireless/?alianceID=1&ouID=123&sID=4&sourceid=55558892&TelePhone=4006707181";
+            console.log("123");
+            var ifr = document.createElement("iframe");
+            ifr.className = "iOpen";
+            ifr.style.display = "none";
+            document.body.appendChild(ifr);
+            ifr.src = ctripUrl;
+        }
+        openApp();
+        if (openAppFlag && downAppFlag) {
+        //优先执行唤醒
 
-     switch (+openAppFlag) {
-     case 1 :
+        } else if (openAppFlag) {
 
-     break;
-     case 9 :
+            switch (+openAppFlag) {
+                case 1 :
 
-     break;
-     default :
-     break;
-     }
+                    break;
+                case 9 :
+
+                    break;
+                default :
+                    break;
+            }
 
 
-     } else if (downAppFlag) {
-     var salesVal = commonStore.getStore("SALE_OBJECT") && commonStore.getStore("SALE_OBJECT").value ?
-     commonStore.getStore("SALE_OBJECT").value : null;
+        } else if (downAppFlag) {
+            var salesVal = commonStore.getStore("SALE_OBJECT") && commonStore.getStore("SALE_OBJECT").value ?
+            commonStore.getStore("SALE_OBJECT").value : null;
 
-     if (salesVal) {
+        if (salesVal) {
 
-     }
-     }
+        }
+    }
 
-     function getCtripUrl (url) {
-     if (url) {
-     return CTRIP_PROTOCOL + "/h5_online_url?url=" + Mkt.Utils.base64().encode(url);
-     }
-     return "";
-     }
+        function getCtripUrl (url) {
+            if (url) {
+                return CTRIP_PROTOCOL + "/h5_online_url?url=" + Mkt.Utils.base64().encode(url);
+            }
+            return "";
+        }
 
-     return {
-     getCtripH5OnlineUrl:getCtripUrl
-     }
+    return {
+        getCtripH5OnlineUrl:geWtCtripUrl
+    }
 
-     }());
-     */
+    }());
+
 
     window.Mkt = Mkt;
 
