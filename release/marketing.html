@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <title>Marketing</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="携程旅行网是中国领先的在线旅行服务公司，旗下携程旅行向超过9000万会员提供酒店预订、酒店点评及特价酒店查询、机票预订、飞机票查询、时刻表、票价查询、航班查询、度假预订、商旅管理、为您的出行提供全方位旅行服务。">
+    <meta name="keywords" content="酒店预订,特价酒店,机票,机票预订,飞机票查询,航班查询,酒店团购,旅游度假,旅行,商旅管理,手机订酒店,手机订机票,携程旅行">
+    <meta name="viewport" content="width=320.1,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-title" content="携程旅行">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta content="telephone=no" name="format-detection">
+    <meta name="baidu-tc-cerfication" content="ba07d70ead40fe3171a72dc4099ed4e5">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link type="text/css" rel="stylesheet" href="../dev/css/mkt.css"/>
+</head>
+<body>
+    <h1 style="padding-left: 50px;">Release</h1>
+    <nav id="nav">
+        <ul class="nav-list" ok="123">
+            <li><div><a title="机票" url="/webapp/flight/" url-url="/webapp/flight/">机票</a></div></li>
+            <li><div><a title="火车 汽车票" url="/webapp/train/" url-url="/webapp/train/">火车<span class="point">·</span>汽车票</a></div></li>
+            <li><div><a title="用车" url="/webapp/car/" url-url="/webapp/car/">用车</a></div></li>
+            <li><div><a title="酒店" url="/webapp/hotel/" url-url="/webapp/hotel/">酒店</a></div></li>
+            <li><div><a title="团购" url="/webapp/tuan/" url-url="/webapp/tuan/">团购</a></div></li>
+            <li><div><a title="高端美食" url="/webapp/topshop/index.html#index">高端美食</a></div></li>
+            <li><div><a title="门票 玩乐" url="/webapp/ticket/index" url-url="/webapp/ticket/index">门票<span class="point">·</span>玩乐</a></div></li>
+            <li><div><a title="旅行金融" url="/webapp/lipin/index.html#money">旅行金融</a></div></li>
+            <li><div><a title="跟团游" url="/webapp/tour/index" url-url="/webapp/tour/index">跟团游</a></div></li>
+            <li><div><a title="自由行" url="/webapp/diy/index.html" url-url="/webapp/diy/index.html">自由行</a></div></li>
+            <li><div><a title="邮轮" url="/webapp/cruise/index.html" url-url="/webapp/cruise/index.html">邮轮</a></div></li>
+            <li><div><a title="签证" url="/webapp/tourvisa/index.html" url-url="/webapp/tourvisa/index.html">签证</a></div></li>
+            <li><div><a title="特卖汇" url="/webapp/deals/index" url-url="/webapp/deals/index">特卖汇</a></div></li>
+            <li><div><a title="顶级游" url="/webapp/hhtravel/index" url-url="/webapp/hhtravel/index">顶级游</a></div></li>
+            <li><div><a title="公司旅游" url="/webapp/mice/index" url-url="/webapp/mice/index">公司旅游</a></div></li>
+            <li><div><a title="企业差旅" url="/webapp/corpctrip/index.html" url-url="/webapp/corpctrip/index.html">企业差旅</a></div></li>
+        </ul>
+    </nav>
+    <div id="footer">
+        <div data-appurl="ctrip://wireless/ticket_inquire?&amp;extendSourceID=8888" id="dl_app" style="" class="fix_bottom">
+            <div id="icon_text" class="txt_middle">
+                <img src="http://res.m.ctrip.com/html5/content/images/icon_text_s6_1.png">
+            </div>
+            <a href="/market/download.aspx?from=H5" id="app_link" class="txt_middle __appaddress__">
+                <img src="http://res.m.ctrip.com/html5/content/images/icon_open_s6.png"></a>
+            <div id="close_icon"></div>
+        </div>
+    </div>
+    <!--<a class="app-link" href="www.baidu.com">Baidu</a>-->
+    <script src="mkt.base.js"></script>
+    <script src="mkt.ad.js"></script>
+    <script>
+        /*
+        var dayName = function() {
+            console.log(arguments);
+            var names = ["Sunday", "Monday", "Tuesday", "Wednesday",
+                "Thursday", "Friday", "Saturday"];
+            return function(number) {
+                console.log(arguments);
+                return names[number];
+            };
+        }();
+        console.log(dayName(1));
+        // → Wednesday
+
+        var str = "/m/c350?form=singlemessage&isappinstalled=1fdsafdsafewqfew/*-**-55**8*-32f*-ds5a*f-d5safds";
+        str = "/m/c350";
+        var reg = new RegExp("^/[mM]/([a-zA-Z0-9]{1,9}[?]?.*)","g");
+        console.log(str.match(reg));
+
+         */
+        var arr = document.getElementsByTagName("*");
+//        console.log(arr);
+        console.log(Mkt.Dom.getById("footer"));
+//        Mkt.Dom.getById("footer").html("<h1>Ctrip workers</h1>");
+        console.log(Mkt.Dom.getByClass("__appaddress__"));
+        /*
+        Mkt.Dom.getByClass("app-link").hide();
+        Mkt.Dom.getByClass("app-link").show();
+        var elems = Mkt.Dom.getByClass("nav-list").elems;
+        for (var idx = 0, len = elems.length; idx < len; idx++) {
+//            console.log(elems[idx].getAttribute("ok"));
+            elems[idx].setAttribute("fuck", "hello again and again~")
+        }
+        */
+//        Mkt.Dom.getById("footer").hide();
+//        Mkt.Dom.getById("footer").show();
+        /**
+         * 得到ajax对象
+         */
+        /*
+        function getajaxHttp() {
+            var xmlHttp;
+            try {
+                // Firefox, Opera 8.0+, Safari
+                xmlHttp = new XMLHttpRequest();
+            } catch (e) {
+                // Internet Explorer
+                try {
+                    xmlHttp = new ActiveXObject("Msxml2.XMLHTTP");
+                } catch (e) {
+                    try {
+                        xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+                    } catch (e) {
+                        alert("您的浏览器不支持AJAX！");
+                        return false;
+                    }
+                }
+            }
+            return xmlHttp;
+        }
+        */
+        /**
+         * 发送ajax请求
+         * url--url
+         * methodtype(post/get)
+         * con (true(异步)|false(同步))
+         * parameter(参数)
+         * functionName(回调方法名，不需要引号,这里只有成功的时候才调用)
+         * (注意：这方法有二个参数，一个就是xmlhttp,一个就是要处理的对象)
+         * obj需要到回调方法中处理的对象
+         */
+        /*
+        function ajaxrequest(url,methodtype,con,parameter,functionName,obj){
+            var xmlhttp=getajaxHttp();
+
+            xmlhttp.onreadystatechange = function(){
+                if(xmlhttp.readyState == 4){
+                    //HTTP响应已经完全接收才调用
+                    functionName(xmlhttp.responseText);
+                }
+            };
+            xmlhttp.open(methodtype,url,con);
+            xmlhttp.setRequestHeader("Content-Type","application/json");
+            xmlhttp.send(parameter);
+        }
+        //这就是参数
+        function createxml(){
+            var xml="<user><userid>asdfasdfasdf<\/userid><\/user>";//"\/"这不是大写V而是转义是左斜杠和右斜杠
+            return xml;
+        }
+        //这就是参数
+        function createjson(){
+            var json={id:0,username:"好人"};
+            return json;
+        }
+        function c(data,obj){
+            console.log(data);
+        }
+        //测试
+        ajaxrequest("text/a.txt","post",true,createjson(),c,document);
+
+        Mkt.Ajax.submitRequest({
+            url: "text/a.txt",
+            type: "POST",
+            success: function (data) {
+                console.log(data);
+            },
+            error: function (e) {
+                console.log(e);
+            }
+        });
+        var d = Mkt.Utils.formatDate('Y/m/d H:i:s', new Date(), 1);
+        console.log(d);
+        */
+        console.log(document.referrer);
+        var url = Mkt.Utils.base64().encode("m.ctrip.com");
+        console.log(url);
+        console.log(Mkt.Utils.base64().decode(url));
+    </script>
+</body>
+</html>
