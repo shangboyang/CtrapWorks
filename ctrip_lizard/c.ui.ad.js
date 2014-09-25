@@ -13,7 +13,8 @@
         hasApp: false,
         key: 'HAS_CTRIP_APP',
         appProtocol: 'ctrip://wireless',
-        //传入参数，第一个是有app时候处理方案，第二个是没有app时候处理方案，有点情况函数返回ture才打开app，但是初次无论如何都会打开
+        //传入参数，第一个是有app时候处理方案，第二个是没有app时候处理方案，
+        // 有点情况函数返回ture才打开app，但是初次无论如何都会打开
         openApp: function (hasAppFunc, noAppFunc, appUrl) {
             //看是否已经获取了数据，已经获取过数据便有其它方案
             var appData = AppUtility.getAppData();

@@ -713,16 +713,18 @@
             isAndroid = getUa && getUa().isAndroid,  // Android app
             isApple = getUa && getUa().isAndroid;    // Apple app
 
+
         function openApp (ctripUrl) {
-            var ctripUrl = "ctrip://wireless/?alianceID=1&ouID=123&sID=4&sourceid=55558892&TelePhone=4006707181";
-            console.log("123");
+            var ctripUrl = "ctrip://wireless";
             var ifr = document.createElement("iframe");
             ifr.className = "iOpen";
             ifr.style.display = "none";
             document.body.appendChild(ifr);
             ifr.src = ctripUrl;
         }
+
         openApp();
+
         if (openAppFlag && downAppFlag) {
         //优先执行唤醒
 
@@ -756,9 +758,9 @@
             return "";
         }
 
-    return {
-        getCtripH5OnlineUrl:geWtCtripUrl
-    }
+        return {
+            getCtripH5OnlineUrl: getCtripUrl
+        }
 
     }());
 
