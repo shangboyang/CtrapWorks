@@ -50,13 +50,14 @@
         t = isHuaWei ? 2000 : t;
 
         var flag = 0;
+        /*
         window.onblur = function (){
            hasApp = true;
             if(hasApp) {
                 flag = 1;
             }
         };
-
+        */
 
         //如果页面发生跳转，则说明安装了app
         document.addEventListener(visibilityChange, function(e) {
