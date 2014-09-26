@@ -17,8 +17,9 @@
         // 有点情况函数返回ture才打开app，但是初次无论如何都会打开
         openApp: function (hasAppFunc, noAppFunc, appUrl) {
             //看是否已经获取了数据，已经获取过数据便有其它方案
-            var appData = AppUtility.getAppData();
+//            var appData = AppUtility.getAppData();
             var t1 = Date.now();
+            /*
             if (appData && appData != '') {
                 if (appData.hasApp) {
                     if (typeof hasAppFunc == 'function') {
@@ -37,6 +38,7 @@
                 }
                 return '';
             }
+            */
             if (!appUrl || appUrl.length <= 0) {
                 (typeof noAppFunc == 'function') && noAppFunc();
             }
@@ -89,8 +91,9 @@
                 window.hasApp = AppUtility.hasApp;
 
             }, AppUtility.t + 1000);
-        },
+        }
         //获取app信息
+        /*
         getAppData: function () {
             //暂时不缓存数据
             return '';
@@ -104,6 +107,7 @@
             }
             return '';
         }
+        */
     };
     window.AppUtility = AppUtility;
 })();
@@ -223,7 +227,6 @@ adOptions.setAppUrl = function () {
     var appUrl = AppUtility.appProtocol;
     var bizName = null, searchInfo = null, c1 = null, c2 = null, c3 = null, c4 = null, c5 = null, c6 = null, c7 = null, c8 = null, c9 = null, c10 = null, c11 = null;
     var pageId = $('#page_id').val();
-    console.log(pageId);
     var _reg = new RegExp("-", "g"), _reg2 = new RegExp("/", "g"); //创建正则RegExp对象
     if (pageId && +pageId > 0) {
         //begin 酒店（国内常规/周边）
@@ -715,7 +718,7 @@ adOptions.setAppUrl = function () {
     } else {
         appUrl += '&extendSourceID=8888';
     }
-    console.log("open Url :" + appUrl);
+
     return appUrl;
 };
 /********************************
@@ -749,8 +752,9 @@ adOptions.onShow = function () {
             appUrl = scope.setAppUrl(),
             pageId = $('#page_id').val(),
             u = navigator.userAgent ? navigator.userAgent.toLocaleLowerCase() : '';
-        console.log(url);
+
         var isMac = (u.indexOf("mac", 0) != -1) || (navigator.userAgent.indexOf("ios", 0) != -1) ? 1 : 0;
+
         if (isMac) {
             window.location = appUrl;
             setTimeout(function () {
@@ -970,7 +974,7 @@ adOptions.checkAutoDownload = function () {
         appUrl = this.setAppUrl(); //生产app协议url
     }
     var s = adOptions._get("SALES_OBJECT"); //获取渠道信息
-    console.log(s);
+
     if (isMac) {
         if (appUrl && appUrl.length > 0) {
             //mwli
@@ -1086,7 +1090,6 @@ adOptions.create = function () {
 
     //fix 2.0下，下载包错误的bug shbzhang 2014/6/26
     var self = this;
-    console.log("hell yaaaaaaaaaaaaaaa");
     setTimeout(function () {
         adOptions.checkAutoDownload.call(self)
     }, 3000);
@@ -1339,7 +1342,7 @@ adOptions.popupPromo = function () {
         }
         return matchKeyword && matchSid;
     };
-    console.log(document.referrer ? "refer url :" + document.referrer : "referrer undefined");
+
     //sepopup参数为1或者命中策略时会弹层，但是如果前一个页面已出现弹层，则不再出
     if ((adOptions.getUrlParam("sepopup") == 1 || matchPopup()) && document.referrer.indexOf("sepopup=1") < 0) {
         if (document.getElementById("se-popup") === null) {

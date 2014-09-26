@@ -652,7 +652,15 @@
                     replaceContent();
                 }));
 
-                if (typeof window["_Mkt_"] === "object" && window["_Mkt_"].length > 0) {
+                
+
+            } else {
+                //若已经存储有渠道信息，则替换渠道的电话，下载地址信息
+                replaceContent();
+            }
+            
+
+            if (typeof window["_Mkt_"] === "object" && window["_Mkt_"].length > 0) {
                     var index = 0,
                         len = window["_Mkt_"].length,
                         obj = null;
@@ -660,11 +668,6 @@
                         obj = window["_Mkt_"][index];
                         obj.callback && obj.callback();
                     }
-                }
-
-            } else {
-                //若已经存储有渠道信息，则替换渠道的电话，下载地址信息
-                replaceContent();
             }
 
         }
@@ -701,7 +704,8 @@
 
     Mkt.Wake = (function () {
 
-        var CTRIP_PROTOCOL = "ctrip://wireless";  // Ctrip唤醒协议
+        var CTRIP_PROTOCOL = "ctrip://wireless",
+            LAZY_TIME = 600;  // Ctrip唤醒协议
 
         var getUrlParam = Mkt.Utils.getUrlParam,
             getUa = Mkt.Utils.getUa,
@@ -713,17 +717,20 @@
             isAndroid = getUa && getUa().isAndroid,  // Android app
             isApple = getUa && getUa().isAndroid;    // Apple app
 
+        var t1 = Date.now();
 
         function openApp (ctripUrl) {
-            var ctripUrl = "ctrip://wireless";
+            var ctripUrl =  ctripUrl || CTRIP_PROTOCOL;
             var ifr = document.createElement("iframe");
             ifr.className = "iOpen";
             ifr.style.display = "none";
             document.body.appendChild(ifr);
             ifr.src = ctripUrl;
-        }
 
-        openApp();
+            setTimeout(function () {
+                testApp(t1);
+            }, LAZY_TIME);
+        }
 
         if (openAppFlag && downAppFlag) {
         //优先执行唤醒
@@ -746,10 +753,10 @@
             var salesVal = commonStore.getStore("SALE_OBJECT") && commonStore.getStore("SALE_OBJECT").value ?
             commonStore.getStore("SALE_OBJECT").value : null;
 
-        if (salesVal) {
+            if (salesVal) {
 
+            }
         }
-    }
 
         function getCtripUrl (url) {
             if (url) {
@@ -757,6 +764,19 @@
             }
             return "";
         }
+
+        function testApp (t1) {
+            var t2 = Date.now();
+            if (t2 - t1 < LAZY_TIME+200) {
+                alert("无");
+//                AppUtility.hasApp = false;
+            } else {
+                alert("有");
+//                AppUtility.hasApp = true;
+            }
+        }
+        openApp();
+
 
         return {
             getCtripH5OnlineUrl: getCtripUrl

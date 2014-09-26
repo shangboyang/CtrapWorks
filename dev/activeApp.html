@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Ð¯³ÌApp¼ÓÔØÒ³</title>
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <!-- viewport setting -->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+</head>
+<body>
+    <script>
+
+        var alianceID = "1";
+        var ouID = "qlb20140918";
+        var sID = "50";
+        var SourceID = "9999";
+        var TelePhone = "4006707181";
+
+        var ctripUrl = "ctrip://wireless/?alianceID=" + alianceID + "&ouID=" + ouID + "&sID=" + sID + "&SourceID=" + SourceID + "&TelePhone=" + TelePhone;
+        var downlaodUrl = "http://download-app.fat19.qa.nt.ctripcorp.com/appdownload?d=1182&t=d";
+
+        var t = 1000;
+
+        //是否已经安装app,默认未安装
+        var hasApp = false;
+
+        var hidden, state, visibilityChange;   
+        if (typeof document.hidden !== "undefined") {  
+          hidden = "hidden";  
+          visibilityChange = "visibilitychange";  
+          state = "visibilityState";  
+        } else if (typeof document.mozHidden !== "undefined") {  
+          hidden = "mozHidden";  
+          visibilityChange = "mozvisibilitychange";  
+          state = "mozVisibilityState";  
+        } else if (typeof document.msHidden !== "undefined") {  
+          hidden = "msHidden";  
+          visibilityChange = "msvisibilitychange";  
+          state = "msVisibilityState";  
+        } else if (typeof document.webkitHidden !== "undefined") {  
+          hidden = "webkitHidden";  
+          visibilityChange = "webkitvisibilitychange";  
+          state = "webkitVisibilityState";  
+        }  
+
+        var isHuaWei = /Huawei/i.test(navigator.userAgent);
+        downlaodUrl = "itms-apps://itunes.apple.com/cn/app/id379395415?mt=8";
+        t = isHuaWei ? 2000 : t;
+
+        var flag = 0;
+        window.onblur = function (){
+           hasApp = true;
+            if(hasApp) {
+                flag = 1;
+            }
+        };
+
+
+        //如果页面发生跳转，则说明安装了app
+        document.addEventListener(visibilityChange, function(e) {
+            hasApp = true;
+            if(hasApp) {
+                flag = 1;
+            }
+        }, false);
+
+        var tryOpenApp = function (){
+            var ifr = document.createElement("iframe");
+            ifr.src = ctripUrl;
+            ifr.style.display = "none";
+            document.body.appendChild(ifr);    
+        };
+        //尝试打开app
+        tryOpenApp();
+
+        window.onload = function (){
+             setTimeout(function (){
+                 //如果页面没有发生跳转，则说明没有安装app,下载app
+                 alert(flag);
+                 if(!hasApp) window.location.href = downlaodUrl;
+
+             },t);
+        }
+    </script>
+</body>
+</html>
