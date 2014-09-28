@@ -739,10 +739,8 @@
 
             switch (+openAppFlag) {
                 case 1 :
-
                     break;
                 case 9 :
-
                     break;
                 default :
                     break;
@@ -754,6 +752,7 @@
             commonStore.getStore("SALE_OBJECT").value : null;
 
             if (salesVal) {
+
 
             }
         }

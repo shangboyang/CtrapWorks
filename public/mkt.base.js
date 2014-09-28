@@ -652,21 +652,24 @@
                     replaceContent();
                 }));
 
-                if (typeof window["_Mkt_"] === "object" && window["_Mkt_"].length > 0) {
-                    var index = 0,
-                        len = window["_Mkt_"].length,
-                        obj = null;
-                    for (; index < len; index++) {
-                        obj = window["_Mkt_"][index];
-                        obj.callback && obj.callback();
-                    }
-                }
 
             } else {
                 //若已经存储有渠道信息，则替换渠道的电话，下载地址信息
                 replaceContent();
             }
 
+            /**
+             * 判断控制并非只以sourceid为主，主浮层的判断更refer也有关联
+             */
+            if (typeof window["_Mkt_"] === "object" && window["_Mkt_"].length > 0) {
+                var index = 0,
+                    len = window["_Mkt_"].length,
+                    obj = null;
+                for (; index < len; index++) {
+                    obj = window["_Mkt_"][index];
+                    typeof obj.callback === "function" && obj.callback();
+                }
+            }
         }
 
         // push callback
@@ -694,6 +697,9 @@
             updateSales: updateSales
         }
     }());
+
+
+
 
     window.Mkt = Mkt;
 
