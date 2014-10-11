@@ -26,8 +26,8 @@
       <file leaf-file-name="c.ui.ad.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ctrip_lizard/c.ui.ad.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.711538" vertical-offset="43980" max-vertical-offset="47833">
-              <caret line="1435" column="43" selection-start-line="1435" selection-start-column="21" selection-end-line="1435" selection-end-column="21" />
+            <state vertical-scroll-proportion="-4.769231" vertical-offset="1209" max-vertical-offset="47833">
+              <caret line="47" column="12" selection-start-line="47" selection-start-column="12" selection-end-line="47" selection-end-column="12" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <marker date="1413008325549" expanded="true" signature="1709:1723" placeholder="..." />
@@ -45,14 +45,15 @@
       <file leaf-file-name="mkt.ad.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/dev/js/mkt.ad.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.6492347" vertical-offset="753" max-vertical-offset="3286">
-              <caret line="320" column="12" selection-start-line="320" selection-start-column="12" selection-end-line="320" selection-end-column="12" />
+            <state vertical-scroll-proportion="0.7026349" vertical-offset="1672" max-vertical-offset="3255">
+              <caret line="340" column="36" selection-start-line="340" selection-start-column="9" selection-end-line="340" selection-end-column="9" />
               <folding>
                 <element signature="e#557#675#0" expanded="false" />
                 <element signature="e#714#1537#0" expanded="false" />
                 <element signature="e#1569#2271#0" expanded="false" />
                 <element signature="e#1622#1914#0" expanded="false" />
                 <element signature="e#1970#2265#0" expanded="false" />
+                <element signature="e#2409#2421#0" expanded="false" />
                 <element signature="e#2431#2579#0" expanded="false" />
                 <element signature="e#2618#5175#0" expanded="false" />
                 <element signature="e#5185#5247#0" expanded="false" />
@@ -60,12 +61,15 @@
                 <element signature="e#7824#7897#0" expanded="false" />
                 <element signature="e#7932#9539#0" expanded="false" />
                 <element signature="e#8570#8999#0" expanded="false" />
-                <element signature="e#9588#10589#0" expanded="false" />
-                <element signature="e#9602#9647#0" expanded="false" />
-                <marker date="1413023771153" expanded="false" signature="2808:2907" placeholder="..." />
-                <marker date="1413023771153" expanded="false" signature="3959:3971" placeholder="..." />
-                <marker date="1413023771153" expanded="false" signature="4499:4512" placeholder="..." />
-                <marker date="1413023771153" expanded="false" signature="4898:4911" placeholder="..." />
+                <element signature="e#9549#9593#0" expanded="false" />
+                <element signature="e#9630#9697#0" expanded="false" />
+                <element signature="e#9746#10767#0" expanded="false" />
+                <element signature="e#9760#9805#0" expanded="false" />
+                <element signature="e#11845#11890#0" expanded="false" />
+                <marker date="1413024809489" expanded="false" signature="2808:2907" placeholder="..." />
+                <marker date="1413024809489" expanded="false" signature="3959:3971" placeholder="..." />
+                <marker date="1413024809489" expanded="false" signature="4499:4512" placeholder="..." />
+                <marker date="1413024809489" expanded="false" signature="4898:4911" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -84,8 +88,8 @@
       <file leaf-file-name="mkt.base.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dev/js/mkt.base.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1953" max-vertical-offset="23777">
-              <caret line="29" column="41" selection-start-line="29" selection-start-column="41" selection-end-line="29" selection-end-column="41" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1488" max-vertical-offset="23777">
+              <caret line="89" column="41" selection-start-line="89" selection-start-column="41" selection-end-line="89" selection-end-column="41" />
               <folding>
                 <element signature="e#200#581#0" expanded="false" />
                 <element signature="e#3941#4846#0" expanded="false" />
@@ -436,7 +440,7 @@
           <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="10" />
+      <option name="time" value="11" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -541,7 +545,7 @@
             <element signature="e#7932#9539#0" expanded="false" />
             <element signature="e#7978#8115#0" expanded="false" />
             <element signature="e#8570#8999#0" expanded="false" />
-            <element signature="e#9602#9647#0" expanded="false" />
+            <element signature="e#9760#9805#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -602,7 +606,7 @@
             <element signature="e#7932#9539#0" expanded="false" />
             <element signature="e#7978#8115#0" expanded="false" />
             <element signature="e#8570#8999#0" expanded="false" />
-            <element signature="e#9602#9647#0" expanded="false" />
+            <element signature="e#9760#9805#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -642,7 +646,7 @@
             <element signature="e#7932#9539#0" expanded="false" />
             <element signature="e#7978#8115#0" expanded="false" />
             <element signature="e#8570#8999#0" expanded="false" />
-            <element signature="e#9602#9647#0" expanded="false" />
+            <element signature="e#9760#9805#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -837,10 +841,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/dev/js/mkt.base.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1488" max-vertical-offset="23777">
+          <caret line="89" column="41" selection-start-line="89" selection-start-column="41" selection-end-line="89" selection-end-column="41" />
+          <folding>
+            <element signature="e#200#581#0" expanded="false" />
+            <element signature="e#3941#4846#0" expanded="false" />
+            <element signature="e#4886#5079#0" expanded="false" />
+            <element signature="e#5118#5424#0" expanded="false" />
+            <element signature="e#5463#5870#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ctrip_lizard/c.ui.ad.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.711538" vertical-offset="43980" max-vertical-offset="47833">
-          <caret line="1435" column="43" selection-start-line="1435" selection-start-column="21" selection-end-line="1435" selection-end-column="21" />
+        <state vertical-scroll-proportion="-4.769231" vertical-offset="1209" max-vertical-offset="47833">
+          <caret line="47" column="12" selection-start-line="47" selection-start-column="12" selection-end-line="47" selection-end-column="12" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <marker date="1413008325549" expanded="true" signature="1709:1723" placeholder="..." />
@@ -854,30 +872,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dev/js/mkt.base.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1953" max-vertical-offset="23777">
-          <caret line="29" column="41" selection-start-line="29" selection-start-column="41" selection-end-line="29" selection-end-column="41" />
-          <folding>
-            <element signature="e#200#581#0" expanded="false" />
-            <element signature="e#3941#4846#0" expanded="false" />
-            <element signature="e#4886#5079#0" expanded="false" />
-            <element signature="e#5118#5424#0" expanded="false" />
-            <element signature="e#5463#5870#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dev/js/mkt.ad.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.6492347" vertical-offset="753" max-vertical-offset="3286">
-          <caret line="320" column="12" selection-start-line="320" selection-start-column="12" selection-end-line="320" selection-end-column="12" />
+        <state vertical-scroll-proportion="0.7026349" vertical-offset="1672" max-vertical-offset="3255">
+          <caret line="340" column="36" selection-start-line="340" selection-start-column="9" selection-end-line="340" selection-end-column="9" />
           <folding>
             <element signature="e#557#675#0" expanded="false" />
             <element signature="e#714#1537#0" expanded="false" />
             <element signature="e#1569#2271#0" expanded="false" />
             <element signature="e#1622#1914#0" expanded="false" />
             <element signature="e#1970#2265#0" expanded="false" />
+            <element signature="e#2409#2421#0" expanded="false" />
             <element signature="e#2431#2579#0" expanded="false" />
             <element signature="e#2618#5175#0" expanded="false" />
             <element signature="e#5185#5247#0" expanded="false" />
@@ -885,12 +890,15 @@
             <element signature="e#7824#7897#0" expanded="false" />
             <element signature="e#7932#9539#0" expanded="false" />
             <element signature="e#8570#8999#0" expanded="false" />
-            <element signature="e#9588#10589#0" expanded="false" />
-            <element signature="e#9602#9647#0" expanded="false" />
-            <marker date="1413023771153" expanded="false" signature="2808:2907" placeholder="..." />
-            <marker date="1413023771153" expanded="false" signature="3959:3971" placeholder="..." />
-            <marker date="1413023771153" expanded="false" signature="4499:4512" placeholder="..." />
-            <marker date="1413023771153" expanded="false" signature="4898:4911" placeholder="..." />
+            <element signature="e#9549#9593#0" expanded="false" />
+            <element signature="e#9630#9697#0" expanded="false" />
+            <element signature="e#9746#10767#0" expanded="false" />
+            <element signature="e#9760#9805#0" expanded="false" />
+            <element signature="e#11845#11890#0" expanded="false" />
+            <marker date="1413024809489" expanded="false" signature="2808:2907" placeholder="..." />
+            <marker date="1413024809489" expanded="false" signature="3959:3971" placeholder="..." />
+            <marker date="1413024809489" expanded="false" signature="4499:4512" placeholder="..." />
+            <marker date="1413024809489" expanded="false" signature="4898:4911" placeholder="..." />
           </folding>
         </state>
       </provider>

@@ -259,6 +259,16 @@
             return popupType;
         }
 
+        /**
+         * 第一次手动关闭浮层时重置local
+         */
+        function checkPopupLocal () {
+
+            // setInterval 5000 验证30min 继续调用dom show
+
+
+        }
+
         function initDomCtrl (flag, popupType) {
             /**
              * 通过来源控制浮层类型
@@ -267,6 +277,7 @@
                 footerElem = null,
                 popupHtml = getPopupStyle( popupType ) || "";
 
+            // 出现
             if (!flag) return;
 
             // 底部浮层 使用div footer
@@ -291,6 +302,8 @@
                 }
                 bindPopupEvent( popupType );
             }
+
+
 
         }
 
