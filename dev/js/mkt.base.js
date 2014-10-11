@@ -170,9 +170,15 @@
         }
         return self;
     };
-    Mkt.Dom.show = function () {
+    Mkt.Dom.show = function ( elem ) {
         var self = this,
             idx = 0, len = self.elems.length;
+
+        if (elem && elem.nodeType === 1) {
+            elem.style.display = "block";
+            return self;
+        }
+
         for (; idx < len; idx ++) {
             if (self.elems[idx] && self.elems[idx].nodeType === 1) {
                 self.elems[idx].style.display = "block";
@@ -180,15 +186,54 @@
         }
         return self;
     };
-    Mkt.Dom.hide = function () {
+    Mkt.Dom.hide = function ( elem ) {
         var self = this,
             idx = 0, len = self.elems.length;
+
+        if (elem && elem.nodeType === 1) {
+            elem.style.display = "none";
+            return self;
+        }
+
         for (; idx < len; idx ++) {
             if (self.elems[idx] && self.elems[idx].nodeType === 1) {
                 self.elems[idx].style.display = "none";
             }
         }
         return self;
+    };
+    /**
+     * html 解析成 dom节点
+     * @param html
+     * @returns {Array}
+     */
+    Mkt.Dom.parseDom = function (html) {
+        var elem = document.createElement("div");
+        elem.innerHTML = html;
+        return [].slice.call(elem.childNodes);
+    };
+    Mkt.Dom.appendChild = function (elem, childElems) {
+        var self = this,
+            elem = elem || document.body,
+            children = childElems,
+            index = 0,
+            len = 0;
+        if (!children) {
+            return;
+        }
+        // child === html true
+        if (typeof children === "string") {
+            children = self.parseDom(childElems);
+        }
+        if (children instanceof Array && children.length > 0) {
+            len = children.length;
+            for (; index < len; index++) {
+                elem.appendChild(children[index]);
+            }
+        }
+        if (typeof children === "object" && children.nodeType === 1) {
+            elem.appendChild(children);
+        }
     };
 
     Mkt.buildNamespace( "Mkt.Ajax" );
@@ -767,10 +812,10 @@
         function testApp (t1) {
             var t2 = Date.now();
             if (t2 - t1 < LAZY_TIME+200) {
-                alert("无");
+//                alert("无");
 //                AppUtility.hasApp = false;
             } else {
-                alert("有");
+//                alert("有");
 //                AppUtility.hasApp = true;
             }
         }

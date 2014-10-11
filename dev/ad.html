@@ -13,9 +13,10 @@
     <meta name="baidu-tc-cerfication" content="ba07d70ead40fe3171a72dc4099ed4e5">
     <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
     <link type="text/css" rel="stylesheet" href="css/mkt.css"/>
+    <link type="text/css" rel="stylesheet" href="css/popup.css"/>
 </head>
 <body>
-    <h1 style="padding-left: 50px;">Dev-Ad</h1>
+    <h1 id="h1" style="padding-left: 50px;">Dev-Ad</h1>
     <nav id="nav">
         <ul class="nav-list" >
             <li><div><a title="机票" url="/webapp/flight/" url-url="/webapp/flight/">机票</a></div></li>
@@ -48,5 +49,22 @@
     <!--</div>-->
     <script src="js/mkt.base.js"></script>
     <script src="js/mkt.ad.js"></script>
+
+    <script>
+        var dom = Mkt.Dom;
+        Mkt.Ad.Utils.EventUtil.addHandler(dom.getById("h1").elems[0], "click", function (e) {
+            console.log("this");
+            // center 浮层
+            var centerElem = dom.getByClass( "app-pop" ) && dom.getByClass( "app-pop" ).elems.length > 0 ?
+                    dom.getByClass( "app-pop" ).elems[0] : null,
+                bottomElem = dom.getByClass( "app-fix-bottom" ) && dom.getByClass( "app-fix-bottom" ).elems.length > 0 ?
+                    dom.getByClass( "app-fix-bottom" ).elems[0] : null;
+
+            dom.show(centerElem);
+            dom.getByClass("app-pop-mask").show();
+
+        });
+
+    </script>
 </body>
 </html>

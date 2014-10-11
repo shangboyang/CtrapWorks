@@ -329,7 +329,7 @@
             if (platform.isApple) {
                 platform = "ios-app";
             } else if (platform.isAndroid) {
-                platform = "andreod-app";
+                platform = "android-app";
             } else if (platform.isWinPhone) {
                 platform = "win-app";
             }
@@ -627,49 +627,57 @@
 
         function updateSales () {
 
-            // 优先获取url中的渠道参数
-            var urlSourceid = Mkt.Utils.getUrlParam(null, 'sourceid'),
-                urlSales = Mkt.Utils.getUrlParam(null, 'sales');
+            var timer = null;
 
-            // 分销参数存在 清除 APP_DOWNLOAD
-            if ((urlSourceid && +urlSourceid > 0) || (urlSales && urlSales.length > 0)) {
-                commonStore.removeStore("APP_DOWNLOAD");
-            }
-            // 如果url分销参数存在，则获取服务端的渠道配置
-            if (urlSourceid || urlSales) {
-                if (urlSales) {
-                    setSales(urlSales);
+            function excuteUpdate () {
+
+                // 优先获取url中的渠道参数
+                var urlSourceid = Mkt.Utils.getUrlParam(null, 'sourceid'),
+                    urlSales = Mkt.Utils.getUrlParam(null, 'sales');
+
+                // 分销参数存在 清除 APP_DOWNLOAD
+                if ((urlSourceid && +urlSourceid > 0) || (urlSales && urlSales.length > 0)) {
+                    commonStore.removeStore("APP_DOWNLOAD");
                 }
-                if (urlSourceid) {
-                    setSourceId(urlSourceid);
-                }
-                getSalesObject(urlSales || urlSourceid, $.proxy(function (data) {
-                    // 如果没有配置下载渠道包，则隐藏下载广告浮层2014-1-4 caof
-                    if (!data.appurl || data.appurl.length <= 0) {
-                        dom.getById("dl_app").hide();
+                // 如果url分销参数存在，则获取服务端的渠道配置
+                if (urlSourceid || urlSales) {
+                    if (urlSales) {
+                        setSales(urlSales);
                     }
-                    warning404Tel = data && data.tel ? data.tel : '4000086666';
+                    if (urlSourceid) {
+                        setSourceId(urlSourceid);
+                    }
+                    getSalesObject(urlSales || urlSourceid, $.proxy(function (data) {
+                        // 如果没有配置下载渠道包，则隐藏下载广告浮层2014-1-4 caof
+                        if (!data.appurl || data.appurl.length <= 0) {
+                            dom.getById("dl_app").hide();
+                        }
+                        warning404Tel = data && data.tel ? data.tel : '4000086666';
+                        replaceContent();
+                    }));
+
+                } else {
+                    //若已经存储有渠道信息，则替换渠道的电话，下载地址信息
                     replaceContent();
-                }));
-
-
-            } else {
-                //若已经存储有渠道信息，则替换渠道的电话，下载地址信息
-                replaceContent();
-            }
-
-            /**
-             * 判断控制并非只以sourceid为主，主浮层的判断更refer也有关联
-             */
-            if (typeof window["_Mkt_"] === "object" && window["_Mkt_"].length > 0) {
-                var index = 0,
-                    len = window["_Mkt_"].length,
-                    obj = null;
-                for (; index < len; index++) {
-                    obj = window["_Mkt_"][index];
-                    typeof obj.callback === "function" && obj.callback();
                 }
+
+                /**
+                 * 判断控制并非只以sourceid为主，主浮层的判断更refer也有关联
+                 */
+                if (typeof window["_Mkt_"] === "object" && window["_Mkt_"].length > 0) {
+                    var index = 0,
+                        len = window["_Mkt_"].length,
+                        obj = null;
+                    for (; index < len; index++) {
+                        obj = window["_Mkt_"][index];
+                        typeof obj.callback === "function" && obj.callback();
+                    }
+                }
+
             }
+            clearInterval(timer);
+            timer = setInterval(excuteUpdate, 1000);
+
         }
 
         // push callback
