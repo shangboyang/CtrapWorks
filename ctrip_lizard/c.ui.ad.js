@@ -1,25 +1,27 @@
 ﻿/**
- * 广告组件
- * @type {adOptions|*|{}}
- */
+* 广告组件
+* @type {adOptions|*|{}}
+*/
 
 /**
- * 判断手机是否安装app
- * l_wang
- */
+* 判断手机是否安装app
+* l_wang
+*/
 (function () {
+    if (typeof window["_Mkt_"] === "object") {
+        window["_Mkt_"] = [];
+    }
+
     var AppUtility = {
         t: 600,
         hasApp: false,
         key: 'HAS_CTRIP_APP',
         appProtocol: 'ctrip://wireless',
-        //传入参数，第一个是有app时候处理方案，第二个是没有app时候处理方案，
-        // 有点情况函数返回ture才打开app，但是初次无论如何都会打开
+        //传入参数，第一个是有app时候处理方案，第二个是没有app时候处理方案，有点情况函数返回ture才打开app，但是初次无论如何都会打开
         openApp: function (hasAppFunc, noAppFunc, appUrl) {
             //看是否已经获取了数据，已经获取过数据便有其它方案
-//            var appData = AppUtility.getAppData();
+            var appData = AppUtility.getAppData();
             var t1 = Date.now();
-            /*
             if (appData && appData != '') {
                 if (appData.hasApp) {
                     if (typeof hasAppFunc == 'function') {
@@ -38,13 +40,11 @@
                 }
                 return '';
             }
-            */
             if (!appUrl || appUrl.length <= 0) {
                 (typeof noAppFunc == 'function') && noAppFunc();
             }
             var u = navigator.userAgent ? navigator.userAgent.toLocaleLowerCase() : '';
-            var isAndroid = (u.indexOf("android", 0) != -1) || (u.indexOf("adr", 0) != -1) ? 1 : 0,
-                isChrome = isAndroid && u.indexOf("chrome", 0) != -1 && u.indexOf("nexus", 0) == -1;
+            var isAndroid = (u.indexOf("android", 0) != -1) || (u.indexOf("adr", 0) != -1) ? 1 : 0, isChrome = isAndroid && u.indexOf("chrome", 0) != -1 && u.indexOf("nexus", 0) == -1;
             var ifr = $('<iframe style="display: none;"></iframe>');
             ifr.attr('src', appUrl);
             $('body').append(ifr);
@@ -91,9 +91,8 @@
                 window.hasApp = AppUtility.hasApp;
 
             }, AppUtility.t + 1000);
-        }
+        },
         //获取app信息
-        /*
         getAppData: function () {
             //暂时不缓存数据
             return '';
@@ -107,7 +106,6 @@
             }
             return '';
         }
-        */
     };
     window.AppUtility = AppUtility;
 })();
@@ -115,8 +113,8 @@ var adOptions = adOptions || {};
 adOptions.__propertys__ = function () {
 };
 /********************************
- * @description: AdView初始化，主要是配置rootBox、绑定按钮事件
- */
+* @description: AdView初始化，主要是配置rootBox、绑定按钮事件
+*/
 adOptions.initialize = function ($super, config) {
     this.data = config || {};
     this.storeKey = 'APP_DOWNLOAD';
@@ -139,19 +137,17 @@ adOptions.update = function (config) {
     }
 };
 /********************************
- * @description: 通过模板和开发者传入的数据生成HeaderView
- */
+* @description: 通过模板和开发者传入的数据生成HeaderView
+*/
 adOptions.createHtml = function () {
     var ss1 = adOptions.getUrlParam('sourceid'),
-        ss2 = adOptions.getUrlParam('sales'),
-        allianceid = adOptions.getUrlParam('allianceid'),
-        sid = adOptions.getUrlParam('sid');
+  ss2 = adOptions.getUrlParam('sales'),
+  allianceid = adOptions.getUrlParam('allianceid'),
+  sid = adOptions.getUrlParam('sid');
 
     var clazz = this.isInFooter ? '' : 'fix_bottom';
     var url = '/market/download.aspx?from=H5';
-    var s = adOptions._get("SALES_OBJECT"),
-        unionInfo = adOptions._get("UNION"),
-        unionCookie = adOptions._getCookie('UNION');
+    var s = adOptions._get("SALES_OBJECT"), unionInfo = adOptions._get("UNION"), unionCookie = adOptions._getCookie('UNION');
     var sCss = '';
 
     if (allianceid && allianceid.length > 0 && sid && sid.length > 0) {
@@ -160,33 +156,36 @@ adOptions.createHtml = function () {
     if (unionInfo || unionCookie) {
         sCss = 'display:none;';
     }
+
     if (s && s.sid && +s.sid > 0) {
         if (!s.appurl || s.appurl.length <= 0) {
             sCss = 'display:none;';
         }
         url = s.appurl ? s.appurl : '/market/download.aspx?from=' + s.sid;
     }
+
     /*判断是否强制下载渠道*/
     /*if (ss1 && ss1.length > 0) {
-     var isForceDown = 0;
-     var lstSourceid = ['1657', '497', '1107', '1108', '3516', '3512', '3511', '3503', '3513', '1595', '1596', '3524', '3517', '3518', '1591', '1825', '1826', '1827', '1828', '1829', '1830', '1831', '1832', '1833'];
-     for (var i = 0, len = lstSourceid.length; i < len; i++) {
-     var d = lstSourceid[i];
-     if (d == ss1) { isForceDown = 1; break; }
-     }
-     if (isForceDown) { sCss = 'display:none;'; }
-     }*/
+    var isForceDown = 0;
+    var lstSourceid = ['1657', '497', '1107', '1108', '3516', '3512', '3511', '3503', '3513', '1595', '1596', '3524', '3517', '3518', '1591', '1825', '1826', '1827', '1828', '1829', '1830', '1831', '1832', '1833'];
+    for (var i = 0, len = lstSourceid.length; i < len; i++) {
+    var d = lstSourceid[i];
+    if (d == ss1) { isForceDown = 1; break; }
+    }
+    if (isForceDown) { sCss = 'display:none;'; }
+    }*/
     /**判断是否已经强制下载过，若已经强制下载则不显示广告**/
     /*if (adOptions.isAutoDown(s.sid)) {
-     sCss = 'display:none;';
-     }*/
+    sCss = 'display:none;';
+    }*/
 
     if (this.checkDeviceSupport() == false) {
         sCss = 'display:none;';
     }
+
     // 特殊处理 出浮层的联盟ids
     var allianceArr = [5942, 1127, 7225, 5942, 3588];
-    for (var idx = 0, len = allianceArr.length; idx < len; idx++){
+    for (var idx = 0, len = allianceArr.length; idx < len; idx++) {
         if (+allianceid === allianceArr[idx]) {
             sCss = "";
             break;
@@ -205,12 +204,28 @@ adOptions.createHtml = function () {
         adOptions.saveExpire(1);
         return '';
     }
+
+    //是否为微信
+    var isInWeichat = function () {
+
+        return window.navigator.userAgent.indexOf('MicroMessenger') > -1;
+    }
+
+    //是否为轻量包
+    var isInCtripLite = function () {
+
+        return window.navigator.userAgent.indexOf('CtripLite') > -1;
+    }
+
+    //如果是微信或者轻量包则不显示广告
+    if (isInWeichat() || isInCtripLite()) return;
+
     var appUrl = this.setAppUrl();
     return ['<div data-appurl="' + appUrl + '" id="dl_app" style="' + sCss + '" class="', clazz,
-        '"> <div id="icon_text" class="txt_middle"><img src="http://res.m.ctrip.com/html5/content/images/icon_text_s6_1.png"/></div>',
-            ' <a href="' + url + '" id="app_link" class="txt_middle __appaddress__"><img src="http://res.m.ctrip.com/html5/content/images/icon_open_s6.png"/></a>',
-        '<div id="close_icon"></div>',
-        '</div>'].join('');
+  '"> <div id="icon_text" class="txt_middle"><img src="http://res.m.ctrip.com/html5/content/images/icon_text_s6_1.png"/></div>',
+  ' <a href="' + url + '" id="app_link" class="txt_middle __appaddress__"><img src="http://res.m.ctrip.com/html5/content/images/icon_open_s6.png"/></a>',
+  '<div id="close_icon"></div>',
+  '</div>'].join('');
 };
 adOptions.getUrlParam = function (name) {
     //var aParams = document.location.search.substr(1).split('&');
@@ -223,12 +238,20 @@ adOptions.setAppUrl = function () {
     //获取渠道信息
     //应当在SALES取,SALES_OBJECT可能存在数据未取回的情况 shbzhang 2014/5/21
     var sourceInfo = adOptions._get("SALES");
+    var url = window.location.href;
     // var sourceInfo = adOptions._get("SALES_OBJECT");
     var appUrl = AppUtility.appProtocol;
     var bizName = null, searchInfo = null, c1 = null, c2 = null, c3 = null, c4 = null, c5 = null, c6 = null, c7 = null, c8 = null, c9 = null, c10 = null, c11 = null;
     var pageId = $('#page_id').val();
     var _reg = new RegExp("-", "g"), _reg2 = new RegExp("/", "g"); //创建正则RegExp对象
+    var sdpid = null;
     if (pageId && +pageId > 0) {
+        // 用车部分
+        if (+pageId == 234002) {
+            sdpid = url.substring(url.lastIndexOf("/") + 1).replace(".html", "");
+            bizName = "h5?path=diyshx&page=index.html#/detail.pro#sdpid=";
+            bizName = sdpid ? bizName + sdpid : bizName;
+        }
         //begin 酒店（国内常规/周边）
         if (+pageId == 212092 || +pageId == 212093 || +pageId == 212094 || +pageId == 210090) {
             //国内常规酒店搜索/列表/详情页
@@ -312,9 +335,36 @@ adOptions.setAppUrl = function () {
             }
         }
         // end 团购
+
+
+        //begin 航班看板  add by rhhu 20140825
+        if (+pageId == 212041 || +pageId == 212042) {
+            if (+pageId == 212042) {//航班看板列表
+                searchInfo = window.localStorage ? window.localStorage.getItem("AIRSTATE_DETAIL_PARAM") : null;
+                searchInfo = searchInfo ? JSON.parse(searchInfo) : null;
+                var dport = searchInfo["data"]["dPort"] || '';
+                var aport = searchInfo["data"]["aPort"] || '';
+                var fNo = searchInfo["data"]["fNo"] || '';
+                var fdate = searchInfo["data"]["fdate"];
+                bizName = 'flight_board_list';
+                bizName += '?c1=' + fdate + '&c2=' + fNo + '&c3=' + dport + '&c4=' + aport;
+
+            }
+            if (+pageId == 212041) {//航班看板查询
+                searchInfo = window.localStorage ? window.localStorage.getItem("SEARCHINFO") : null;
+                searchInfo = searchInfo ? JSON.parse(searchInfo) : null;
+                var dport = searchInfo["data"]["DepartAirportCode"] || '';
+                var aport = searchInfo["data"]["ArriveAirportCode"] || '';
+                var fdate = (searchInfo["data"]["DepartDate"]).replace(/-/g, "");
+                bizName = 'flight_board_inquire';
+                bizName += "?c1=" + fdate + "&c2=" + dport + "&c3=" + aport;
+            }
+        }
+        // end 航班看板 add by rhhu 20140825
+
+
         //begin 机票（国内/国际）
-        if (+pageId == 212003 || +pageId == 212004 || +pageId == 212009 || +pageId == 214019 || +pageId == 214209 ||
-            +pageId == 212042) {
+        if (+pageId == 212003 || +pageId == 212004 || +pageId == 212009 || +pageId == 214019 || +pageId == 214209) {
             //机票搜索/列表页
             searchInfo = window.localStorage ? window.localStorage.getItem("S_FLIGHT_AirTicket") : null;
             searchInfo = searchInfo ? JSON.parse(searchInfo) : null;
@@ -343,11 +393,11 @@ adOptions.setAppUrl = function () {
                     if (+pageId == 214019 || +pageId == 214209) {
                         c6 = 1;
                         /*国际机票
-                         c6=国际乘客类型，成人/儿童（1/2）（预留，默认成人）
-                         c7 仓位（可选）1：经济舱  2：超级经济舱3：公务舱4：头等舱
-                         c8 排序类型（预留）1:起飞时间升序 2:起飞时间降序 3:价格升序 4：价格降序 5:耗时升序6:耗时降序
-                         c9 筛选航司（可选）航空公司二字码
-                         */
+                        c6=国际乘客类型，成人/儿童（1/2）（预留，默认成人）
+                        c7 仓位（可选）1：经济舱  2：超级经济舱3：公务舱4：头等舱
+                        c8 排序类型（预留）1:起飞时间升序 2:起飞时间降序 3:价格升序 4：价格降序 5:耗时升序6:耗时降序
+                        c9 筛选航司（可选）航空公司二字码
+                        */
                         //1：经济舱  2：超级经济舱3：公务舱4：头等舱
                         if (+subInfo.value['class'] == 0) {
                             c7 = "1";
@@ -469,8 +519,8 @@ adOptions.setAppUrl = function () {
         //end 火车票
         //begin 旅游（旅游频道首页/周边短途游/团队游/邮轮游）产品查询页，产品列表页，产品详情页
         if (+pageId == 214040 || +pageId == 214045
-            || +pageId == 214046 || +pageId == 214041 || +pageId == 214345
-            || +pageId == 214346 || +pageId == 214042 || +pageId == 214353 || +pageId == 214354) {
+  || +pageId == 214046 || +pageId == 214041 || +pageId == 214345
+  || +pageId == 214346 || +pageId == 214042 || +pageId == 214353 || +pageId == 214354) {
             c1 = c2 = c3 = c4 = c5 = c6 = '';
             searchInfo = window.localStorage ? window.localStorage.getItem("VACATIONS_PRODUCT_LIST_PARAM") : null;
             searchInfo = searchInfo ? JSON.parse(searchInfo) : null;
@@ -482,13 +532,13 @@ adOptions.setAppUrl = function () {
             if (+pageId == 214045) {
                 bizName = 'vacation_weekend_list';
                 /*
-                 cityId	出发城市ID（必需）c1
-                 districtId	景区ID (可选) c2
-                 travelDaysId	游玩天数ID（可选）c3
-                 levelId	产品等级ID（可选）c4
-                 isSelfProudct	只看携程自营（可选：1是、0否）c5
-                 isDiscount	只看优惠产品（可选：1是、0否）c6
-                 */
+                cityId	出发城市ID（必需）c1
+                districtId	景区ID (可选) c2
+                travelDaysId	游玩天数ID（可选）c3
+                levelId	产品等级ID（可选）c4
+                isSelfProudct	只看携程自营（可选：1是、0否）c5
+                isDiscount	只看优惠产品（可选：1是、0否）c6
+                */
                 if (searchInfo && searchInfo.value) {
                     c1 = searchInfo.value.dCtyId;
                     if (searchInfo.value.qparams || searchInfo.value.qparams.length > 0) {
@@ -538,11 +588,11 @@ adOptions.setAppUrl = function () {
                 searchInfo = searchInfo ? JSON.parse(searchInfo) : null;
                 if (searchInfo && searchInfo.value) {
                     /*
-                     departCityId	出发城市ID（可选）c1
-                     arriveName	到达城市名、关键字 （可选）c2
-                     travelDaysId	游玩天数ID（可选）c3
-                     levelId	产品等级ID（可选）c4
-                     */
+                    departCityId	出发城市ID（可选）c1
+                    arriveName	到达城市名、关键字 （可选）c2
+                    travelDaysId	游玩天数ID（可选）c3
+                    levelId	产品等级ID（可选）c4
+                    */
                     c1 = searchInfo.value.dCtyId;
                     c2 = searchInfo.value.destKwd;
                 }
@@ -556,14 +606,14 @@ adOptions.setAppUrl = function () {
                 searchInfo = searchInfo ? JSON.parse(searchInfo) : null;
                 if (searchInfo && searchInfo.value) {
                     /*
-                     departCityId	出发城市ID（必需）c1
-                     arriveName	到达城市名、关键字 (必需) c2
-                     districtId	景区ID (可选) c3
-                     travelDaysId	游玩天数ID（可选）c4
-                     levelId	产品等级ID（可选）c5
-                     isSelfProduct	只看携程自营（可选：1是、0否）c6
-                     isDiscount	只看优惠产品（可选：1是、0否）c7
-                     */
+                    departCityId	出发城市ID（必需）c1
+                    arriveName	到达城市名、关键字 (必需) c2
+                    districtId	景区ID (可选) c3
+                    travelDaysId	游玩天数ID（可选）c4
+                    levelId	产品等级ID（可选）c5
+                    isSelfProduct	只看携程自营（可选：1是、0否）c6
+                    isDiscount	只看优惠产品（可选：1是、0否）c7
+                    */
                     //begin 参数设置
                     c1 = searchInfo.value.dCtyId;
                     c2 = searchInfo.value.destKwd;
@@ -599,9 +649,9 @@ adOptions.setAppUrl = function () {
             if (+pageId == 214346) {
                 bizName = 'vacation_group_detail';
                 /*
-                 departCityId	出发城市ID（必需）c1
-                 productId	产品ID (必需) c2
-                 */
+                departCityId	出发城市ID（必需）c1
+                productId	产品ID (必需) c2
+                */
                 c1 = c2 = '';
                 searchInfo = window.localStorage ? window.localStorage.getItem("VACATIONS_PRODUCT_DETAIL_PARAM") : null;
                 searchInfo = searchInfo ? JSON.parse(searchInfo) : null;
@@ -619,9 +669,9 @@ adOptions.setAppUrl = function () {
                 c1 = c2 = '';
                 if (searchInfo && searchInfo.value) {
                     /*
-                     departCityId	出发城市ID（可选）c1
-                     routeId	航线ID (可选) c2
-                     */
+                    departCityId	出发城市ID（可选）c1
+                    routeId	航线ID (可选) c2
+                    */
                     c1 = searchInfo.value.dCtyId || '';
                     if (searchInfo.value.qparams || searchInfo.value.qparams.length > 0) {
                         for (var s in searchInfo.value.qparams) {
@@ -642,14 +692,14 @@ adOptions.setAppUrl = function () {
                 c1 = c2 = c3 = c4 = c5 = c6 = c7 = '';
                 if (searchInfo && searchInfo.value) {
                     /*
-                     departCityId	出发城市ID（必需）c1
-                     routeId	航线ID (必需) c2
-                     companyId	油轮公司ID (可选) c3
-                     productFormId	产品形态ID（可选） c4
-                     portDepartId	出发港口ID（可选）c5
-                     isSelfProduct	只看携程自营（可选：1是、0否）c6
-                     isDiscount	只看优惠产品（可选：1是、0否）c7
-                     */
+                    departCityId	出发城市ID（必需）c1
+                    routeId	航线ID (必需) c2
+                    companyId	油轮公司ID (可选) c3
+                    productFormId	产品形态ID（可选） c4
+                    portDepartId	出发港口ID（可选）c5
+                    isSelfProduct	只看携程自营（可选：1是、0否）c6
+                    isDiscount	只看优惠产品（可选：1是、0否）c7
+                    */
                     c1 = searchInfo.value.dCtyId;
                     if (searchInfo.value.qparams || searchInfo.value.qparams.length > 0) {
                         for (var s in searchInfo.value.qparams) {
@@ -701,14 +751,124 @@ adOptions.setAppUrl = function () {
             }
         }
         //end 旅游
+
+        //begin 邮轮
+        if (+pageId == 223001 || +pageId == 223002 || +pageId == 223003 || +pageId == 223004 || +pageId == 223005 || +pageId == 223006) {
+            bizName = "h5?path=cruise&page=index.html";
+            if (+pageId == 223001) {
+                bizName += "#index";
+            }
+            if (+pageId == 223002) {
+                bizName += "#search";
+            }
+            if (+pageId == 223003) {
+                searchInfo = window.localStorage ? window.localStorage.getItem("CRUISE_LIST_PARAM_WO_STORE") : null;
+                searchInfo = searchInfo ? JSON.parse(searchInfo) : null;
+
+                /**
+                 *       'Cities':[], //出发城市  s
+                 *       'Companies':[], //邮轮公司 c
+                 *       'StartDates':[], //出发时间 t
+                 *       'VoyaIds':[],  v
+                 *       'VoyaRegions':[], //出发航线  a
+                 *       'RouteCountries':[], //途经国家  g
+                 *       'StartContinents':[], //出发洲  l
+                 *       'RouteContinents':[] //途经大洲区域 z
+                 **/
+                if(searchInfo){
+                    searchInfo = searchInfo.data || searchInfo.value;
+                    c1 = "";
+                    c2 = [];
+                    //邮轮公司
+                    if(searchInfo.Cities && searchInfo.Cities.length){
+                        c1 += "s";
+                        searchInfo.Cities.forEach(function(item){
+                             c2.push(item.Id);
+                        });
+                        c1 += c2.join("_");
+                    }
+                    //邮轮公司
+                    if(searchInfo.Companies && searchInfo.Companies.length){
+                        c1 += "c";
+                        searchInfo.Companies.forEach(function(item){
+                             c2.push(item.Id);
+                        });
+                        c1 += c2.join("_");
+                    }
+                    //出发时间
+                    if(searchInfo.StartDates && searchInfo.StartDates.length){
+                        c1 += "t";
+                        searchInfo.StartDates.forEach(function(item){
+                             c2.push(item.Id);
+                        });
+                        c1 += c2.join("_");
+                    }
+                    //邮轮id
+                    if(searchInfo.VoyaIds && searchInfo.VoyaIds.length){
+                        c1 += "v";
+                        c1 += searchInfo.VoyaIds.join("_");
+                    }
+                    //出发航线
+                    if(searchInfo.VoyaRegions && searchInfo.VoyaRegions.length){
+                        c1 += "a";
+                        searchInfo.VoyaRegions.forEach(function(item){
+                             c2.push(item.Id);
+                        });
+                        c1 += c2.join("_");
+                    }
+                    //途经国家
+                    if(searchInfo.RouteCountries && searchInfo.RouteCountries.length){
+                        c1 += "g";
+                        searchInfo.RouteCountries.forEach(function(item){
+                             c2.push(item.Id);
+                        });
+                        c1 += c2.join("_");
+                    }
+                    //出发洲
+                    if(searchInfo.StartContinents && searchInfo.StartContinents.length){
+                        c1 += "l";
+                        searchInfo.StartContinents.forEach(function(item){
+                             c2.push(item.Id);
+                        });
+                        c1 += c2.join("_");
+                    }
+                    //途经大洲区域
+                    if(searchInfo.RouteContinents && searchInfo.RouteContinents.length){
+                        c1 += "z";
+                        c1 += searchInfo.RouteContinents.join("_");
+                    }
+                    
+                    bizName += "#list?filter=" + c1;
+                }
+            }
+            if (+pageId == 223004 || +pageId == 223005 || +pageId == 223006) {
+                var detailParam = window.localStorage ? window.localStorage.getItem("S_CRUISE_CRUISEDETAIL_PARAM") : null;
+                detailParam = detailParam ? JSON.parse(detailParam) : null;
+                if (detailParam) {
+                    detailParam = detailParam.data || detailParam.value;
+                    
+                    c1 = detailParam.id || '';
+                    c2 = detailParam.SailingID || '';
+                    bizName += "#detail&id=" + c1 + "&sailingid=" + c2;
+                }
+            }
+        }
+        //end 邮轮
     }
-    //end bizName
+    //end bizName       fdsafdsafdsafdsafds
     appUrl += bizName ? "/" + bizName : '';
     //h5 app 跳转hybird 传参数  slh
     var view = this.getCurrentView();
+    var hiddenUrl = $("#app_url").size() > 0 && $("#app_url").val() ? $("#app_url").val() : "";
     if (view && view.getAppUrl) {
         appUrl = AppUtility.appProtocol + view.getAppUrl();
+    } else if (hiddenUrl) {
+        AppUtility.appProtocol + hiddenUrl;
     }
+    /*if (!view.getAppUrl() && hiddenUrl) {
+    appUrl = AppUtility.appProtocol + hiddenUrl;
+    }*/
+
     if (appUrl.indexOf('?') <= -1) {
         appUrl += '?v=2';
     }
@@ -718,12 +878,12 @@ adOptions.setAppUrl = function () {
     } else {
         appUrl += '&extendSourceID=8888';
     }
-
+    console.log("open Url :" + appUrl);
     return appUrl;
 };
 /********************************
- * @description: onShow时候的回调，绑定Adview上的事件
- */
+* @description: onShow时候的回调，绑定Adview上的事件
+*/
 adOptions.onShow = function () {
     this.root.off('click');
     this.root.find('#close_icon').on('click', $.proxy(function () {
@@ -749,12 +909,11 @@ adOptions.onShow = function () {
         e.preventDefault();
         // 修改this指向错误  slh
         var url = $(this).attr('href'),
-            appUrl = scope.setAppUrl(),
-            pageId = $('#page_id').val(),
-            u = navigator.userAgent ? navigator.userAgent.toLocaleLowerCase() : '';
-
+  appUrl = scope.setAppUrl(),
+  pageId = $('#page_id').val(),
+  u = navigator.userAgent ? navigator.userAgent.toLocaleLowerCase() : '';
+        console.log(url);
         var isMac = (u.indexOf("mac", 0) != -1) || (navigator.userAgent.indexOf("ios", 0) != -1) ? 1 : 0;
-
         if (isMac) {
             window.location = appUrl;
             setTimeout(function () {
@@ -800,8 +959,8 @@ adOptions.checkDeviceSupport = function () {
     return true;
 };
 /**
- * 保存失效时间 update 2014-1-13  增加isClose，用于标记是否是用户主动点击关闭（isClose=1标识用户主动关闭广告浮层）
- */
+* 保存失效时间 update 2014-1-13  增加isClose，用于标记是否是用户主动点击关闭（isClose=1标识用户主动关闭广告浮层）
+*/
 adOptions.saveExpire = function (isClose) {
     var data = { isExpire: 1 }, timeout = new Date();
     if (isClose) {
@@ -839,8 +998,8 @@ adOptions.appDownload = function () {
         }, 30);
     } else {
         /*************end 2014-1-13 caofu************/
-            //传入处理函数，第一个是有app时候处理方案，第二个是没有app时候处理方案
-            //安装app情况下，第一个参数为true才会打开app，但是初次无论如何都会打开
+        //传入处理函数，第一个是有app时候处理方案，第二个是没有app时候处理方案
+        //安装app情况下，第一个参数为true才会打开app，但是初次无论如何都会打开
         AppUtility.openApp(function () {
             return true;
         }, function () {
@@ -860,62 +1019,62 @@ adOptions.appDownload = function () {
 //check auto download，强制下载l_wang修改过了
 adOptions.checkForceDownload = function (sourceid) {
     /*
-     //调整自动下载需求：必须传入
-     var self = this;
-     if (!sourceid || sourceid.length <= 0 || +sourceid <= 0) return;
-     //获取渠道信息
-     var s = adOptions._get("SALES_OBJECT");
-     //判断用户网络环境，若不是wifi环境，则不自动下载
-     if (navigator.connection) {
-     if (navigator.connection.type != navigator.connection.WIFI) {
-     adOptions.saveExpire(1);
-     adOptions.saveAutoDown(sourceid);
-     return;
-     }
-     }
-     //判断是否已经强制下载，若已强制下载则不再执行自动下载
-     if (adOptions.isAutoDown(sourceid)) {
-     adOptions.saveExpire(1);
-     adOptions.saveAutoDown(sourceid);
-     return;
-     }
-     var appUrl = adOptions.setAppUrl();//生产app协议url
-     var u = navigator.userAgent ? navigator.userAgent.toLocaleLowerCase() : '';
-     var isMac = (u.indexOf("mac", 0) != -1) || (navigator.userAgent.indexOf("ios", 0) != -1) ? 1 : 0;
-     if (isMac) {
-     adOptions.saveExpire(1);
-     adOptions.saveAutoDown(sourceid);
-     window.location = appUrl;
-     setTimeout(function () { window.location = "itms-apps://itunes.apple.com/cn/app/id379395415?mt=8"; }, 30);
-     } else {
-     //传入处理函数，第一个是有app时候处理方案，第二个是没有app时候处理方案
-     //安装app情况下，第一个参数为true才会打开app，但是初次无论如何都会打开
-     AppUtility.openApp(function () {
-     adOptions.saveExpire(1);
-     adOptions.saveAutoDown(sourceid);
-     //self.hide(); //强制下载后主动关闭，隐藏广告浮层
-     if (self.root.attr('id') == 'dl_app') {
-     self.root.hide();
-     }
-     return true;
-     }, function () {
-     var isAndroid = (u.indexOf("android", 0) != -1) || (u.indexOf("adr", 0) != -1) ? 1 : 0;
-     //Android强制下载
-     if (isAndroid) {
-     var url = "http://m.ctrip.com/market/download.aspx?from=" + sourceid + '&App=3';
-     if (s && s.sid && +s.sid > 0 && +s.sid == +sourceid && s.appurl && s.appurl.length > 0) {
-     url = s.appurl;
-     }
-     adOptions.saveExpire(1);
-     adOptions.saveAutoDown(sourceid);
-     //self.hide(); //强制下载后主动关闭，隐藏广告浮层
-     if (self.root.attr('id') == 'dl_app') {
-     self.root.hide();
-     }
-     window.location.href = url;
-     }
-     }, appUrl);
-     }*/
+    //调整自动下载需求：必须传入
+    var self = this;
+    if (!sourceid || sourceid.length <= 0 || +sourceid <= 0) return;
+    //获取渠道信息
+    var s = adOptions._get("SALES_OBJECT");
+    //判断用户网络环境，若不是wifi环境，则不自动下载
+    if (navigator.connection) {
+    if (navigator.connection.type != navigator.connection.WIFI) {
+    adOptions.saveExpire(1);
+    adOptions.saveAutoDown(sourceid);
+    return;
+    }
+    }
+    //判断是否已经强制下载，若已强制下载则不再执行自动下载
+    if (adOptions.isAutoDown(sourceid)) {
+    adOptions.saveExpire(1);
+    adOptions.saveAutoDown(sourceid);
+    return;
+    }
+    var appUrl = adOptions.setAppUrl();//生产app协议url
+    var u = navigator.userAgent ? navigator.userAgent.toLocaleLowerCase() : '';
+    var isMac = (u.indexOf("mac", 0) != -1) || (navigator.userAgent.indexOf("ios", 0) != -1) ? 1 : 0;
+    if (isMac) {
+    adOptions.saveExpire(1);
+    adOptions.saveAutoDown(sourceid);
+    window.location = appUrl;
+    setTimeout(function () { window.location = "itms-apps://itunes.apple.com/cn/app/id379395415?mt=8"; }, 30);
+    } else {
+    //传入处理函数，第一个是有app时候处理方案，第二个是没有app时候处理方案
+    //安装app情况下，第一个参数为true才会打开app，但是初次无论如何都会打开
+    AppUtility.openApp(function () {
+    adOptions.saveExpire(1);
+    adOptions.saveAutoDown(sourceid);
+    //self.hide(); //强制下载后主动关闭，隐藏广告浮层
+    if (self.root.attr('id') == 'dl_app') {
+    self.root.hide();
+    }
+    return true;
+    }, function () {
+    var isAndroid = (u.indexOf("android", 0) != -1) || (u.indexOf("adr", 0) != -1) ? 1 : 0;
+    //Android强制下载
+    if (isAndroid) {
+    var url = "http://m.ctrip.com/market/download.aspx?from=" + sourceid + '&App=3';
+    if (s && s.sid && +s.sid > 0 && +s.sid == +sourceid && s.appurl && s.appurl.length > 0) {
+    url = s.appurl;
+    }
+    adOptions.saveExpire(1);
+    adOptions.saveAutoDown(sourceid);
+    //self.hide(); //强制下载后主动关闭，隐藏广告浮层
+    if (self.root.attr('id') == 'dl_app') {
+    self.root.hide();
+    }
+    window.location.href = url;
+    }
+    }, appUrl);
+    }*/
 };
 /// <summary>
 /// 通过开关参数控制是否需要强制唤醒app （2014-3-17 caof）
@@ -923,14 +1082,14 @@ adOptions.checkForceDownload = function (sourceid) {
 adOptions.checkAutoDownload = function () {
     //调整自动下载需求：必须传入
     var self = this,
-        sourceid = this.getUrlParam('sourceid'),
-        isopenapp = this.getUrlParam('openapp'),
-        isodownapp = this.getUrlParam('downapp');
+  sourceid = this.getUrlParam('sourceid'),
+  isopenapp = this.getUrlParam('openapp'),
+  isodownapp = this.getUrlParam('downapp');
     if (!sourceid || sourceid.length <= 0 || +sourceid <= 0) return;
     var isdown_iosapp = 0,
-        isdown_androidapp = 0,
-        isopen_androidapp = 0,
-        isopen_iosapp = 0;
+  isdown_androidapp = 0,
+  isopen_androidapp = 0,
+  isopen_iosapp = 0;
     var u = navigator.userAgent ? navigator.userAgent.toLocaleLowerCase() : '';
     //判断设备类型
     var isMac = (u.indexOf("mac", 0) != -1) || (navigator.userAgent.indexOf("ios", 0) != -1) ? 1 : 0; //ios设备
@@ -974,8 +1133,8 @@ adOptions.checkAutoDownload = function () {
         appUrl = this.setAppUrl(); //生产app协议url
     }
     var s = adOptions._get("SALES_OBJECT"); //获取渠道信息
-
     if (isMac) {
+        console.log("Maccccccccccccccccc");
         if (appUrl && appUrl.length > 0) {
             //mwli
             $(".iOpenApp").remove();
@@ -998,15 +1157,15 @@ adOptions.checkAutoDownload = function () {
         }
     } else {
         /*************end 2014-1-13 caofu************/
-            //传入处理函数，第一个是有app时候处理方案，第二个是没有app时候处理方案
-            //安装app情况下，第一个参数为true才会打开app，但是初次无论如何都会打开
+        //传入处理函数，第一个是有app时候处理方案，第二个是没有app时候处理方案
+        //安装app情况下，第一个参数为true才会打开app，但是初次无论如何都会打开
         AppUtility.openApp(function () {
             adOptions.saveExpire(0);
             adOptions.saveAutoDown(sourceid);
             //强制下载后主动关闭，隐藏广告浮层
             /*if (self.root.attr('id') == 'dl_app') {
-             self.root.hide();
-             }*/
+            self.root.hide();
+            }*/
             return true;
         }, function () {
             /************判断是否已经强制下载，若已强制下载则不再执行自动下载************/
@@ -1043,15 +1202,15 @@ adOptions.checkAutoDownload = function () {
             adOptions.saveAutoDown(sourceid);
             //强制下载后主动关闭，隐藏广告浮层 浮层的显示跟开关参数无关，注释
             /*if (self.root.attr('id') == 'dl_app') {
-             self.root.hide();
-             }*/
+            self.root.hide();
+            }*/
             window.location.href = url;
         }, appUrl);
     }
 };
 /********************************
- * @description: 重写create方法
- */
+* @description: 重写create方法
+*/
 adOptions.create = function () {
     $('body').find('iframe').remove();
     if (!this.isCreate && !this.isExpire() && this.status !== this.STATE_ONCREATE) {
@@ -1092,7 +1251,7 @@ adOptions.create = function () {
     var self = this;
     setTimeout(function () {
         adOptions.checkAutoDownload.call(self)
-    }, 3000);
+    }, 2000);
 };
 
 //验证是否过期
@@ -1153,7 +1312,7 @@ adOptions._set = function (key, value, timeout) {
     };
     window.localStorage.setItem(key, JSON.stringify(entity));
 };
-if (window.location.pathname.indexOf('webapp') > -1 || window.localStorage.getItem('isInApp')) {
+if (window.Lizard || window.location.pathname.indexOf('webapp') > -1 || window.localStorage.getItem('isInApp')) {
     define(['cBase', 'cUIAbstractView', 'libs', 'cStore'], function (cBase, AbstractView, libs, cStore) {
         var AdView = new cBase.Class(AbstractView, adOptions);
         AdView.getInstance = function () {
@@ -1192,24 +1351,16 @@ if (window.location.pathname.indexOf('webapp') > -1 || window.localStorage.getIt
         AdView.show();
     }, 800);
 }
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //自动调起当前页面对应的APP页面，失败则自动下载APP
 adOptions.autoOpenDownApp = function (sourceid, openapp, downapp) {
     //调整自动下载需求：必须传入
     var isopenapp = openapp || 3,
-        isodownapp = downapp || 3;
+  isodownapp = downapp || 3;
 
     var isdown_iosapp = 0,
-        isdown_androidapp = 0,
-        isopen_androidapp = 0,
-        isopen_iosapp = 0;
+  isdown_androidapp = 0,
+  isopen_androidapp = 0,
+  isopen_iosapp = 0;
     var u = navigator.userAgent ? navigator.userAgent.toLocaleLowerCase() : '';
     //判断设备类型
     var isMac = (u.indexOf("mac", 0) != -1) || (navigator.userAgent.indexOf("ios", 0) != -1) ? 1 : 0; //ios设备
@@ -1243,8 +1394,8 @@ adOptions.autoOpenDownApp = function (sourceid, openapp, downapp) {
         }, 30);
     } else {
         /*************end 2014-1-13 caofu************/
-            //传入处理函数，第一个是有app时候处理方案，第二个是没有app时候处理方案
-            //安装app情况下，第一个参数为true才会打开app，但是初次无论如何都会打开
+        //传入处理函数，第一个是有app时候处理方案，第二个是没有app时候处理方案
+        //安装app情况下，第一个参数为true才会打开app，但是初次无论如何都会打开
         AppUtility.openApp(function () {
             return true;
         }, function () {
@@ -1292,40 +1443,40 @@ adOptions.popupPromo = function () {
     sid = adOptions.getUrlParam("sid") || getStore("UNION").SID;
     if (!sourceid) return;
     allianceid = adOptions.getUrlParam("allianceid") || getStore("UNION")["AllianceID"] || allianceid,
-        keywords = ["baidu.com", "google.com", "soso.com", "so.com", "bing.com", "yahoo", "youdao.com", "sogou.com", "so.360.cn", "jike.com", "babylon.com", "ask.com", "avg.com", "easou.com", "panguso.com", "yandex.com", "sm.cn"],
-        sourceids = ["1825", "1826", "1827", "1828", "1829", "1831", "1832", "1833", "1830"];
+  keywords = ["baidu.com", "google.com", "soso.com", "so.com", "bing.com", "yahoo", "youdao.com", "sogou.com", "so.360.cn", "jike.com", "babylon.com", "ask.com", "avg.com", "easou.com", "panguso.com", "yandex.com", "sm.cn"],
+  sourceids = ["1825", "1826", "1827", "1828", "1829", "1831", "1832", "1833", "1830"];
     //Sid: 178071,Sid: 446852
     //sourceid:1833 Allianceid:18887 Sid: 447459
 
     sIds = [130028, 130029, 409197, 353693, 130026, 135366, 297877,
-        130033, 130034, 131044, 110603, 353694, 130678, 135371, 353696, 130701,
-        135374, 110611, 353698, 130709, 135376, 110614, 426566, 426568, 353701,
-        130727, 135379, 139029, 110620, 353703, 130761, 135383, 353704, 130788,
-        135388, 110630, 353699, 353700, 189318, 135390, 130860, 130875, 303055,
-        156043, 130862, 130863, 130876, 130859, 240799, 159295, 442174, 176275,
-        240801, 231208, 278782, 326416, 353680, 295517, 130999, 130907, 112563,
-        176220, 110647, 3752, 125344, 144532, 120414, 171210, 86710, 110276, 447459];
+  130033, 130034, 131044, 110603, 353694, 130678, 135371, 353696, 130701,
+  135374, 110611, 353698, 130709, 135376, 110614, 426566, 426568, 353701,
+  130727, 135379, 139029, 110620, 353703, 130761, 135383, 353704, 130788,
+  135388, 110630, 353699, 353700, 189318, 135390, 130860, 130875, 303055,
+  156043, 130862, 130863, 130876, 130859, 240799, 159295, 442174, 176275,
+  240801, 231208, 278782, 326416, 353680, 295517, 130999, 130907, 112563,
+  176220, 110647, 3752, 125344, 144532, 120414, 171210, 86710, 110276, 447459];
     allianceids = ["4897", "4899", "4900", "4901", "4902", "4903", "4904", "5376", "5377", "3052", "13964", "13963", "18887"];
 
     /*matchPopup = function(){
-     var matchKeyword = false, matchAllianceid = false;
-     for(var i = 0, len = keywords.length; i < len; i++){
-     if(document.referrer.match(keywords[i])){
-     matchKeyword = true;
-     break;
-     }
-     }
-     for(var i = 0, len = allianceids.length; i < len; i++){
-     if(allianceid == allianceids[i]){
-     matchAllianceid = true;
-     break;
-     }
-     }
-     return matchKeyword && matchAllianceid;
-     };*/
+    var matchKeyword = false, matchAllianceid = false;
+    for(var i = 0, len = keywords.length; i < len; i++){
+    if(document.referrer.match(keywords[i])){
+    matchKeyword = true;
+    break;
+    }
+    }
+    for(var i = 0, len = allianceids.length; i < len; i++){
+    if(allianceid == allianceids[i]){
+    matchAllianceid = true;
+    break;
+    }
+    }
+    return matchKeyword && matchAllianceid;
+    };*/
     /**
-     * mwli
-     */
+    * mwli
+    */
     matchPopup = function () {
         var matchKeyword = false, matchSid = false;
         for (var i = 0, len = keywords.length; i < len; i++) {
@@ -1342,7 +1493,7 @@ adOptions.popupPromo = function () {
         }
         return matchKeyword && matchSid;
     };
-
+    console.log(document.referrer ? "refer url :" + document.referrer : "referrer undefined");
     //sepopup参数为1或者命中策略时会弹层，但是如果前一个页面已出现弹层，则不再出
     if ((adOptions.getUrlParam("sepopup") == 1 || matchPopup()) && document.referrer.indexOf("sepopup=1") < 0) {
         if (document.getElementById("se-popup") === null) {
@@ -1350,17 +1501,17 @@ adOptions.popupPromo = function () {
             var telnum = saleobj.tel || "4000086666";
 
             var str = [
-                '<div class="se-popup" id="se-popup">',
-                '<div class="se-main" style="width:240px;height:329px;margin-top:-165px;margin-left:-120px;position:fixed;top:50%;left:50%;z-index:10000;">',
-                '<img src="http://res.m.ctrip.com/market/images/popup.png" width="100%" />',
-                '<a class="se-close" href="javascript:void(0)" style="position:absolute;width:19px;height:19px;top:9px;right:9px;"></a>',
-                '<a class="se-openapp __appaddress__" href="/market/download.aspx?from=MPopup" style="position:absolute;width:154px;height:43px;bottom:97px;right:43px;"></a>',
-                    '<a class="se-phone __hreftel__" href="tel:' + telnum + '" style="position:absolute;width:154px;height:30px;bottom:60px;right:43px;"></a>',
-                '<a class="se-continue" href="javascript:void(0)" style="position:absolute;width:154px;height:30px;bottom:21px;right:43px;"></a>',
-                '</div>',
-                '<div class="se-mask" style="position:fixed;left:0px;top:0px;width:100%;height:100%;z-index:9999;background:rgba(0,0,0,.2);"></div>',
-                '</div>'
-            ].join("");
+  '<div class="se-popup" id="se-popup">',
+  '<div class="se-main" style="width:240px;height:329px;margin-top:-165px;margin-left:-120px;position:fixed;top:50%;left:50%;z-index:10000;">',
+  '<img src="http://res.m.ctrip.com/market/images/popup.png" width="100%" />',
+  '<a class="se-close" href="javascript:void(0)" style="position:absolute;width:19px;height:19px;top:9px;right:9px;"></a>',
+  '<a class="se-openapp __appaddress__" href="/market/download.aspx?from=MPopup" style="position:absolute;width:154px;height:43px;bottom:97px;right:43px;"></a>',
+  '<a class="se-phone __hreftel__" href="tel:' + telnum + '" style="position:absolute;width:154px;height:30px;bottom:60px;right:43px;"></a>',
+  '<a class="se-continue" href="javascript:void(0)" style="position:absolute;width:154px;height:30px;bottom:21px;right:43px;"></a>',
+  '</div>',
+  '<div class="se-mask" style="position:fixed;left:0px;top:0px;width:100%;height:100%;z-index:9999;background:rgba(0,0,0,.2);"></div>',
+  '</div>'
+      ].join("");
             $(str).appendTo($(document.body));
             $(".se-close").on("click", function () {
                 $(".se-popup").css("display", "none");
@@ -1375,7 +1526,12 @@ adOptions.popupPromo = function () {
         }
     }
 };
-//时序
+window["_Mkt_"] = [];
+window["_Mkt_"].push({
+    callback: adOptions.popupPromo
+});
+/*
 setTimeout(function () {
     adOptions.popupPromo();
 }, 2000);
+*/

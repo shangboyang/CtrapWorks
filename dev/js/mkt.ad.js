@@ -7,11 +7,7 @@
 
     Mkt.Ad.Utils = Mkt.Utils || {};
     Mkt.Ad.deCfg = {
-        KEY_HASAPP: "HAS_CTRIP_APP",
-        KEY_DOWNAPP: "APP_DOWNLOAD",
-        PROTOCAL_APP: 'ctrip://wireless', // app 协议
-        lazyTime: 600, // 毫秒
-        hasApp: false, // 手机是否装app 从local去读HasApp
+        KEY_POPUP: "MKT_POPUP",
         popupType: 0, // 1: main Popup 2: bottom Popup
         referKeys: ["baidu.com", "google.com", "soso.com", "so.com", "bing.com", "yahoo", "youdao.com",
             "sogou.com", "so.360.cn", "jike.com", "babylon.com", "ask.com", "avg.com", "easou.com",
@@ -86,7 +82,7 @@
         var instance = null,
             utils = Mkt.Ad.Utils;
 
-        function setPopupTime () {
+        function setPopupTimeout () {
 
         }
 
@@ -206,6 +202,10 @@
             }
         }
 
+        /**
+         * 判断url & seo refer
+         * @returns {number}
+         */
         function showTypeCheck () {
 
             var popupType = 0;
@@ -259,7 +259,7 @@
             return popupType;
         }
 
-        function initDomCtrl (popupType) {
+        function initDomCtrl (flag, popupType) {
             /**
              * 通过来源控制浮层类型
              */
@@ -267,6 +267,7 @@
                 footerElem = null,
                 popupHtml = getPopupStyle( popupType ) || "";
 
+            if (!flag) return;
 
             // 底部浮层 使用div footer
             if (popupType && popupType !== 1) {
@@ -293,11 +294,45 @@
 
         }
 
+        /**
+         * 初始化LocalStorage [先行者]
+         * @returns {boolean} popup = close ? false : true;
+         */
+        function initPopupLocal () {
+
+            var utils = Mkt.Ad.Utils,
+                commonStore = Mkt.Store && Mkt.Store.CommonStore ? Mkt.Store.CommonStore.getInstance() : null,
+                popupLocalKey = Mkt.Ad.deCfg.KEY_POPUP || "",
+                popupLocalVal = commonStore.getStore(popupLocalKey) || null,
+                popupFlag = utils.getUrlParam && utils.getUrlParam(null, "popup") === "close" ? "close" : "open";
+
+            if (commonStore && popupLocalKey) {
+
+                if (!popupLocalVal) {
+                    popupLocalVal = {
+                        pupopShow: popupFlag,
+                        pupopType: 0,
+                        timeout: null
+                    };
+                    // 未取到local
+                    commonStore.setStore(popupLocalKey, popupLocalVal);
+                }
+            }
+            console.log(popupLocalVal);
+            // 如果全局参数为关闭 不执行浮层控制
+            if (popupFlag === "close") {
+                return false;
+            }
+
+            return true;
+        }
+
         function initialize () {
 
-            var popupType = showTypeCheck() || 0;
+            var popupFlag = initPopupLocal(),
+                popupType = showTypeCheck() || 0;
 
-            initDomCtrl(popupType);
+            initDomCtrl(popupFlag, popupType);
 
         }
 
@@ -314,6 +349,6 @@
 
     }());
 
-    var popup = Mkt.Ad.Popup.getInstance();
+    Mkt.Ad.Popup.getInstance();
 
 }( window ));

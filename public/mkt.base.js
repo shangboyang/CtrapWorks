@@ -191,6 +191,7 @@
         return self;
     };
 
+
     Mkt.buildNamespace( "Mkt.Ajax" );
     Mkt.Ajax.obj = (function () {
         var xmlHttp;
