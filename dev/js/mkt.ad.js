@@ -9,6 +9,7 @@
     Mkt.Ad.deCfg = {
         KEY_POPUP: "MKT_POPUP",
         popupType: 0, // 1: main Popup 2: bottom Popup
+        // seo update
         referKeys: ["baidu.com", "google.com", "soso.com", "so.com", "bing.com", "yahoo", "youdao.com",
             "sogou.com", "so.360.cn", "jike.com", "babylon.com", "ask.com", "avg.com", "easou.com",
             "panguso.com", "yandex.com", "sm.cn"]
@@ -80,9 +81,39 @@
     Mkt.Ad.Popup = (function () {
 
         var instance = null,
-            utils = Mkt.Ad.Utils;
+            popupTimer = null, // setInterval 浮层控制
+            utils = Mkt.Ad.Utils,
+            dom = Mkt.Dom,
+            commonStore = Mkt.Store && Mkt.Store.CommonStore.getInstance();
 
-        function setPopupTimeout () {
+        /**
+         * 30分钟激活浮层 || 添加Lizard中View控制
+         */
+        function activatePopupByTimer (showType) {
+
+            var currTime = 0,
+                popupLocalKey = Mkt.Ad.deCfg.KEY_POPUP || "",
+                bottomDom = dom && dom.getByClass("app-fix-bottom").elems[0],
+                activateTime = commonStore.getStoreParam(popupLocalKey, "activateTime") || "",
+                popupType = commonStore.getStoreParam(popupLocalKey, "popupType") || 0;
+
+            if (!showType || !activateTime || !bottomDom) return;
+
+            activateTime = Date.parse(activateTime);
+
+            clearInterval(popupTimer);
+            popupTimer = setInterval(function () {
+
+                currTime = Date.now();
+                if (currTime >= activateTime && bottomDom.style.display == "none") {
+
+                    // 添加Lizard中hasAd控制
+
+                    initDomCtrl(showType, +popupType);
+                }
+
+            }, 5000);
+
 
         }
 
@@ -92,12 +123,12 @@
          * @img photo http://pic.c-ctrip.com/h5/home/...
          * @returns {string}
          */
-        function getPopupStyle (type) {
+        function getPopupHtml (popupType) {
 
             var popupHtml = "",
-                type = type || 0;
+                popupType = popupType || 0;
 
-            switch (+type) {
+            switch (+popupType) {
                 case 1:
                     popupHtml = ['<div class="app-pop-mask" style="position:absolute;z-index:999;top:0;left:0;width:100%;height:100%;background-color:rgba(0,0,0,0.6);"></div>',
                         '<div class="app-pop">','<div class="app-pop-box">','<div class="app-pop-close"></div>','<div class="app-pop-bd">',
@@ -113,7 +144,7 @@
                         '<div class="app-btn-box"><a href="#" class="app-btn01">立即体验</a></div></div>'].join("");
                     break;
                 case 3:
-                    popupHtml = ['<div class="app-fix-bottom" style="bottom:55px;">',
+                    popupHtml = ['<div class="app-fix-bottom">',
                         '<div class="app-close"></div>','<div class="app-text">',
                         '<p class="app-text-title">APP预订专享价</p>',
                         '<p class="app-text-cn">最高立减50%</p></div>',
@@ -121,13 +152,13 @@
                             '<a href="#" class="app-btn02">联系客服</a></div></div>'].join("");
                     break;
                 case 4:
-                    popupHtml = ['<div class="app-fix-bottom" style="bottom:110px;">',
+                    popupHtml = ['<div class="app-fix-bottom">',
                         '<div class="app-close"></div>',
                         '<div class="app-btn-box"><a href="#" class="app-btn01 icon-btn">立即体验携程APP</a>',
                         '<a href="#" class="app-btn02 icon-btn">联系携程客服</a></div></div>'].join("");
                     break;
                 case 5:
-                    popupHtml = ['<div class="app-fix-bottom" style="bottom:165px;">',
+                    popupHtml = ['<div class="app-fix-bottom">',
                         '<div class="app-close"></div><div class="app-text app-text2">',
                         '<p class="app-text-title">立即体验携程APP</p></div></div>'].join("");
                     break;
@@ -136,34 +167,54 @@
             return popupHtml;
         }
 
+
         /**
-         * 父委托绑定浮层Event
+         * 获取30分钟后时间
+         * @param datetime
+         * @returns {Date}
+         */
+        function getActivateTime (datetime) {
+
+            var MIN_NUM = 1,
+                formatDate = Mkt.Utils.formatDate || null,// 日期格式化
+                currTime = datetime && new Date(datetime),
+                activateTime = null;
+            if (!currTime || typeof formatDate !== "function") return;
+
+            currTime.setMinutes(currTime.getMinutes() + MIN_NUM);
+            activateTime = formatDate("Y-m-d H:i:s", currTime);
+
+            return activateTime;
+        }
+
+        /**
+         * 父委托绑定浮层Event 与事件流程控制
          * @param type
          */
-        function bindPopupEvent (type) {
+        function bindPopupEvent (popupType) {
             var dom = Mkt.Dom,
                 eventUtil = Mkt.Ad.Utils.EventUtil,
                 target = null,
-                popupHtml = "",
+                showType = true,
+                activatePopupTime = null,//  Date类型
                 centerElem = dom.getByClass( "app-pop" ) && dom.getByClass( "app-pop" ).elems.length > 0 ?
                     dom.getByClass( "app-pop" ).elems[0] : null,// center 浮层
                 bottomElem = dom.getByClass( "app-fix-bottom" ) && dom.getByClass( "app-fix-bottom" ).elems.length > 0 ?
                     dom.getByClass( "app-fix-bottom" ).elems[0] : null;// bottom 浮层
 
-            // 主浮层 事件控制
-            if (centerElem && type === 1) {
+            //  主浮层 事件控制
+            if (centerElem && popupType === 1) {
 
                 eventUtil.addHandler(centerElem, "click", function (e) {
                     target = e.target;
                     switch (target.className) {
-                        // 关闭popup按钮
+                        //  关闭popup按钮
                         case "app-pop-close":
 
                             dom.hide( centerElem );
                             dom.getByClass("app-pop-mask").hide();
-
-                            //展示小浮层
-                            initDomCtrl(2);
+                            // 展示小浮层
+                            initDomCtrl(showType, 2);
 
                             break;
                         // 立即体验 唤醒 or 下载 App
@@ -188,10 +239,17 @@
                 // 底部浮层 事件控制
                 eventUtil.addHandler(bottomElem, "click", function (e) {
                     target = e.target;
-//                    console.log(target.className);
+
                     if (target.className.match("app-close")) {
                         console.log("close");
                         dom.hide(bottomElem);
+
+                        // formatted Date
+                        activatePopupTime = getActivateTime(Date.now());
+                        // set激活时间 调用30分钟激活策略
+                        showType = setPopupLocal(4, activatePopupTime);
+                        activatePopupByTimer(showType);
+
                     } else if (target.className.match("app-btn01") || target.className.match("app-text-title")) {
                         console.log("activeApp or downloadApp");
                     } else if (target.className.match("app-btn02")) {
@@ -203,12 +261,20 @@
         }
 
         /**
-         * 判断url & seo refer
+         * 判断url & seo refer 定位popup 类型
          * @returns {number}
          */
-        function showTypeCheck () {
+        function getPopupType () {
 
-            var popupType = 0;
+            var popupType = 0,
+                popupLocalKey = Mkt.Ad.deCfg.KEY_POPUP || "";
+
+            // 优先以Local中为准
+            popupType = commonStore.getStoreParam(popupLocalKey, "popupType");
+            if (+popupType > 0) {
+                return +popupType;
+            }
+
             /**
              * url中带有浮层参数sepopup，则根据浮层参数对应的值，展示不同样式浮层
              * 1: center Popup
@@ -260,25 +326,20 @@
         }
 
         /**
-         * 第一次手动关闭浮层时重置local
+         * 初始化浮层dom节点与事件绑定控制   显示 || 添加
+         * @param flag
+         * @param popupType
          */
-        function checkPopupLocal () {
+        function initDomCtrl (showType, popupType) {
 
-            // setInterval 5000 验证30min 继续调用dom show
-
-
-        }
-
-        function initDomCtrl (flag, popupType) {
-            /**
-             * 通过来源控制浮层类型
-             */
             var dom = Mkt.Dom,
                 footerElem = null,
-                popupHtml = getPopupStyle( popupType ) || "";
+                maskElem = dom.getByClass("app-pop-mask").elems[0] || null,
+                centerElem = dom.getByClass("app-pop").elems[0] || null,
+                popupHtml = getPopupHtml( popupType ) || "";
 
             // 出现
-            if (!flag) return;
+            if (!showType) return;
 
             // 底部浮层 使用div footer
             if (popupType && popupType !== 1) {
@@ -290,46 +351,44 @@
                     footerElem.id = "footer";
                     dom.appendChild(document.body, footerElem);
                 }
-
             }
-
+            // 添加dom元素
             if (popupType && popupHtml) {
-                // 中部浮层 塞入html
                 if (popupType === 1) {
+                    maskElem && document.body.removeChild(centerElem);
+                    centerElem && document.body.removeChild();
                     dom.appendChild(document.body, popupHtml);
                 } else {
+                    footerElem.innerHTML = "";
                     dom.appendChild(footerElem, popupHtml);
                 }
                 bindPopupEvent( popupType );
             }
 
-
-
         }
 
         /**
-         * 初始化LocalStorage [先行者]
-         * @returns {boolean} popup = close ? false : true;
+         * Popup LocalStorage 初始化 || 执行中reset
+         * @param popupType
+         * @param activateTime [formattedDate]
+         * @returns {boolean} showType (popup = close ? false : true);
          */
-        function initPopupLocal () {
+        function setPopupLocal (popupType, activateTime) {
 
             var utils = Mkt.Ad.Utils,
-                commonStore = Mkt.Store && Mkt.Store.CommonStore ? Mkt.Store.CommonStore.getInstance() : null,
                 popupLocalKey = Mkt.Ad.deCfg.KEY_POPUP || "",
                 popupLocalVal = commonStore.getStore(popupLocalKey) || null,
                 popupFlag = utils.getUrlParam && utils.getUrlParam(null, "popup") === "close" ? "close" : "open";
 
             if (commonStore && popupLocalKey) {
 
-                if (!popupLocalVal) {
-                    popupLocalVal = {
-                        pupopShow: popupFlag,
-                        pupopType: 0,
-                        timeout: null
-                    };
-                    // 未取到local
-                    commonStore.setStore(popupLocalKey, popupLocalVal);
-                }
+                popupLocalVal = {
+                    pupopShow: popupFlag,
+                    popupType: popupType || commonStore.getStoreParam(popupLocalKey, "popupType") || 0,
+                    activateTime: activateTime || commonStore.getStoreParam(popupLocalKey, "activateTime") || null
+                };
+                commonStore.setStore(popupLocalKey, popupLocalVal);
+
             }
             console.log(popupLocalVal);
             // 如果全局参数为关闭 不执行浮层控制
@@ -342,10 +401,11 @@
 
         function initialize () {
 
-            var popupFlag = initPopupLocal(),
-                popupType = showTypeCheck() || 0;
+            var showType = setPopupLocal(),
+                popupType = getPopupType() || 0;
 
-            initDomCtrl(popupFlag, popupType);
+            initDomCtrl(showType, popupType);
+
 
         }
 
