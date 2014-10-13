@@ -179,6 +179,7 @@
                 formatDate = Mkt.Utils.formatDate || null,// 日期格式化
                 currTime = datetime && new Date(datetime),
                 activateTime = null;
+
             if (!currTime || typeof formatDate !== "function") return;
 
             currTime.setMinutes(currTime.getMinutes() + MIN_NUM);
@@ -192,6 +193,7 @@
          * @param type
          */
         function bindPopupEvent (popupType) {
+
             var dom = Mkt.Dom,
                 eventUtil = Mkt.Ad.Utils.EventUtil,
                 target = null,
@@ -322,6 +324,8 @@
                 popupType = 9;
                 return popupType;
             }
+
+
             return popupType;
         }
 
@@ -354,14 +358,20 @@
             }
             // 添加dom元素
             if (popupType && popupHtml) {
+
                 if (popupType === 1) {
+
                     maskElem && document.body.removeChild(centerElem);
                     centerElem && document.body.removeChild();
                     dom.appendChild(document.body, popupHtml);
+
                 } else {
+
                     footerElem.innerHTML = "";
                     dom.appendChild(footerElem, popupHtml);
+
                 }
+
                 bindPopupEvent( popupType );
             }
 
@@ -405,7 +415,6 @@
                 popupType = getPopupType() || 0;
 
             initDomCtrl(showType, popupType);
-
 
         }
 
