@@ -237,7 +237,6 @@
 
                 eventUtil.addHandler(orgnElem, "click", function (e) {
                     target = e.target;
-                    console.log(target);
                     switch (target.className) {
                         case "se-close":
                             console.log("close");
@@ -275,11 +274,9 @@
                 });
 
             } else {
-                console.log(bottomElem)
                 // 底部浮层 事件控制
                 eventUtil.addHandler(bottomElem, "click", function (e) {
                     target = e.target;
-                    console.log(target);
                     if (target.className == "dl_btn-close") {
                         dom.hide(bottomElem);
 //                        activatePopupTime = getActivateTime(Date.now());// formatted Date
@@ -432,7 +429,7 @@
             var popupCssElem = document.createElement("link");
             popupCssElem.type = "text/css";
             popupCssElem.rel = "stylesheet";
-            popupCssElem.href = "http://webresource.c-ctrip.com/styles/distribution/jhpage/mob_mask.css?141017";
+            popupCssElem.href = "http://webresource.fws.qa.nt.ctripcorp.com/resuniononline/r1/h5mask/styles/mob_mask.css?141017";
             document.head  && document.head.appendChild(popupCssElem);
 
             setTimeout(function () {
