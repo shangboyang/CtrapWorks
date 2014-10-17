@@ -26,41 +26,59 @@
       <file leaf-file-name="c.ui.ad.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ctrip_lizard/c.ui.ad.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="47740">
-              <caret line="54" column="43" selection-start-line="54" selection-start-column="43" selection-end-line="54" selection-end-column="43" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="46500" max-vertical-offset="47833">
+              <caret line="1500" column="47" selection-start-line="1500" selection-start-column="44" selection-end-line="1500" selection-end-column="47" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="c.sales.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ctrip_lizard/c.sales.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="7255" max-vertical-offset="8463">
+              <caret line="225" column="20" selection-start-line="225" selection-start-column="20" selection-end-line="225" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mkt.popup.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/dev/js/mkt.popup.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.6196172" vertical-offset="5124" max-vertical-offset="9455">
+              <caret line="297" column="49" selection-start-line="297" selection-start-column="49" selection-end-line="297" selection-end-column="49" />
               <folding>
-                <marker date="1413008325549" expanded="false" signature="1709:1723" placeholder="..." />
-                <marker date="1413008325549" expanded="false" signature="49307:49320" placeholder="..." />
-                <marker date="1413008325549" expanded="false" signature="61752:61860" placeholder="..." />
-                <marker date="1413008325549" expanded="false" signature="62000:62059" placeholder="..." />
-                <marker date="1413008325549" expanded="false" signature="62156:62221" placeholder="..." />
-                <marker date="1413008325549" expanded="false" signature="62431:62496" placeholder="..." />
-                <marker date="1413008325549" expanded="false" signature="62548:62642" placeholder="..." />
+                <element signature="e#571#689#0" expanded="false" />
+                <element signature="e#728#1551#0" expanded="false" />
+                <element signature="e#1583#2319#0" expanded="false" />
+                <element signature="e#2018#2313#0" expanded="false" />
+                <element signature="e#2631#2717#0" expanded="false" />
+                <element signature="e#2726#3629#0" expanded="false" />
+                <element signature="e#4000#5199#0" expanded="false" />
+                <element signature="e#8435#8934#0" expanded="false" />
+                <element signature="e#12488#14279#0" expanded="false" />
+                <element signature="e#14289#14395#0" expanded="false" />
+                <element signature="e#15745#15956#0" expanded="false" />
+                <marker date="1413461511553" expanded="true" signature="4094:4202" placeholder="..." />
+                <marker date="1413461511553" expanded="true" signature="4386:4445" placeholder="..." />
+                <marker date="1413461511553" expanded="true" signature="4564:4629" placeholder="..." />
+                <marker date="1413461511553" expanded="true" signature="4724:4789" placeholder="..." />
+                <marker date="1413461511553" expanded="true" signature="4879:4944" placeholder="..." />
+                <marker date="1413461511553" expanded="true" signature="5040:5134" placeholder="..." />
+                <marker date="1413461511553" expanded="false" signature="5328:5427" placeholder="..." />
+                <marker date="1413461511553" expanded="true" signature="6057:6156" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mkt.ad.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/dev/js/mkt.ad.js">
+      <file leaf-file-name="popup.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dev/css/popup.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.07296651" vertical-offset="8154" max-vertical-offset="8990">
-              <caret line="417" column="12" selection-start-line="417" selection-start-column="0" selection-end-line="417" selection-end-column="0" />
-              <folding>
-                <element signature="e#579#697#0" expanded="false" />
-                <element signature="e#736#1559#0" expanded="false" />
-                <element signature="e#1591#2293#0" expanded="false" />
-                <element signature="e#1644#1936#0" expanded="false" />
-                <element signature="e#1992#2287#0" expanded="false" />
-                <element signature="e#3513#3661#0" expanded="false" />
-                <element signature="e#3704#6211#0" expanded="false" />
-                <element signature="e#6808#6878#0" expanded="false" />
-                <element signature="e#9770#9854#0" expanded="false" />
-                <element signature="e#10187#10324#0" expanded="false" />
-                <element signature="e#10779#11208#0" expanded="false" />
-                <element signature="e#13484#14418#0" expanded="false" />
-                <marker date="1413202688310" expanded="false" signature="3909:4008" placeholder="..." />
-              </folding>
+            <state vertical-scroll-proportion="0.0" vertical-offset="248" max-vertical-offset="1426">
+              <caret line="8" column="68" selection-start-line="8" selection-start-column="68" selection-end-line="8" selection-end-column="68" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -68,8 +86,8 @@
       <file leaf-file-name="ad.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dev/ad.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-19.633333" vertical-offset="1054" max-vertical-offset="2325">
-              <caret line="53" column="62" selection-start-line="53" selection-start-column="26" selection-end-line="53" selection-end-column="26" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1023" max-vertical-offset="3906">
+              <caret line="49" column="4" selection-start-line="49" selection-start-column="4" selection-end-line="49" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -78,8 +96,8 @@
       <file leaf-file-name="mkt.base.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dev/js/mkt.base.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="17.557692" vertical-offset="5284" max-vertical-offset="26102">
-              <caret line="141" column="44" selection-start-line="141" selection-start-column="17" selection-end-line="141" selection-end-column="17" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="7347" max-vertical-offset="26505">
+              <caret line="237" column="4" selection-start-line="237" selection-start-column="0" selection-end-line="237" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -111,12 +129,13 @@
         <option value="$PROJECT_DIR$/release/marketing.html" />
         <option value="$PROJECT_DIR$/dev/css/popup.css" />
         <option value="$PROJECT_DIR$/dev/marketing.html" />
-        <option value="$PROJECT_DIR$/dev/js/mkt.base.js" />
-        <option value="$PROJECT_DIR$/dev/ad.html" />
         <option value="$PROJECT_DIR$/ctrip_lizard/c.ui.ad.js" />
         <option value="$PROJECT_DIR$/release/mkt.base.js" />
         <option value="$PROJECT_DIR$/public/mkt.base.js" />
         <option value="$PROJECT_DIR$/dev/js/mkt.ad.js" />
+        <option value="$PROJECT_DIR$/dev/ad.html" />
+        <option value="$PROJECT_DIR$/dev/js/mkt.base.js" />
+        <option value="$PROJECT_DIR$/dev/js/mkt.popup.js" />
       </list>
     </option>
   </component>
@@ -150,6 +169,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -158,137 +178,8 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sales" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sales" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="release" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sales" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sales" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sales" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sales" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dev" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sales" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sales" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dev" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sales" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sales" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dev" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sales" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sales" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dev" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="images" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sales" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sales" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dev" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sales" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sales" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ctrip_lizard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -307,14 +198,6 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
-      <option name="VMOptions" />
-      <option name="arguments" />
-      <option name="filePath" />
-      <option name="scope" value="ALL" />
-      <option name="testName" />
-      <method />
-    </configuration>
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
       <option name="VMOptions" />
       <option name="arguments" />
@@ -325,14 +208,12 @@
       <option name="showConsoleOnStdOut" value="false" />
       <method />
     </configuration>
-    <configuration default="true" type="CucumberJavaScriptRunConfigurationType" factoryName="Cucumber.js">
-      <option name="cucumberJsArguments" />
-      <option name="executablePath" />
+    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
+      <option name="VMOptions" />
+      <option name="arguments" />
       <option name="filePath" />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" config-file="">
-      <envs />
+      <option name="scope" value="ALL" />
+      <option name="testName" />
       <method />
     </configuration>
     <configuration default="true" type="JSTestDriver:ConfigurationType" factoryName="JsTestDriver">
@@ -342,14 +223,24 @@
       <setting name="preferredDebugBrowser" value="Chrome" />
       <method />
     </configuration>
-    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" config-file="">
+      <envs />
       <method />
     </configuration>
-    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" working-dir="">
+    <configuration default="true" type="CucumberJavaScriptRunConfigurationType" factoryName="Cucumber.js">
+      <option name="cucumberJsArguments" />
+      <option name="executablePath" />
+      <option name="filePath" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
       <method />
     </configuration>
     <configuration default="true" type="Cocos2dx-JS" factoryName="Cocos2dx-JS">
       <option name="scriptType" value="Javascript" />
+      <method />
+    </configuration>
+    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" working-dir="">
       <method />
     </configuration>
     <list size="0" />
@@ -367,7 +258,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1680" height="1010" extended-state="0" />
+    <frame x="0" y="0" width="1680" height="1010" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -387,11 +278,11 @@
       <window_info id="Animations&#9;" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295325" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295325" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -419,18 +310,10 @@
           <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="12" />
+      <option name="time" value="13" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/dev/js/mkt.base.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2759" max-vertical-offset="26102">
-          <caret line="89" column="41" selection-start-line="89" selection-start-column="41" selection-end-line="89" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dev/ad.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="404" max-vertical-offset="1767">
@@ -461,7 +344,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/release/mkt.ad.js">
+    <entry file="file://$PROJECT_DIR$/release/mkt.popup.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="248" max-vertical-offset="465">
           <caret line="8" column="26" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
@@ -504,7 +387,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/release/mkt.ad.js">
+    <entry file="file://$PROJECT_DIR$/release/mkt.popup.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="589">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -519,24 +402,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dev/js/mkt.ad.js">
+    <entry file="file://$PROJECT_DIR$/dev/js/mkt.popup.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="558" max-vertical-offset="2821">
           <caret line="18" column="36" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
           <folding>
-            <element signature="e#579#697#0" expanded="false" />
-            <element signature="e#736#1559#0" expanded="false" />
-            <element signature="e#1591#2293#0" expanded="false" />
-            <element signature="e#1644#1936#0" expanded="false" />
-            <element signature="e#1992#2287#0" expanded="false" />
-            <element signature="e#3513#3661#0" expanded="false" />
-            <element signature="e#3704#6211#0" expanded="false" />
-            <element signature="e#6808#6878#0" expanded="false" />
-            <element signature="e#9770#9854#0" expanded="false" />
-            <element signature="e#10187#10324#0" expanded="false" />
-            <element signature="e#10779#11208#0" expanded="false" />
-            <element signature="e#13484#14418#0" expanded="false" />
-            <marker date="1413202688310" expanded="false" signature="3909:4008" placeholder="..." />
+            <element signature="e#571#689#0" expanded="false" />
+            <element signature="e#728#1551#0" expanded="false" />
+            <element signature="e#1583#2319#0" expanded="false" />
+            <element signature="e#2018#2313#0" expanded="false" />
+            <element signature="e#2631#2717#0" expanded="false" />
+            <element signature="e#2726#3629#0" expanded="false" />
+            <element signature="e#4000#5199#0" expanded="false" />
+            <element signature="e#8435#8934#0" expanded="false" />
+            <element signature="e#12488#14279#0" expanded="false" />
+            <element signature="e#14289#14395#0" expanded="false" />
+            <element signature="e#15745#15956#0" expanded="false" />
+            <marker date="1413461511553" expanded="true" signature="4094:4202" placeholder="..." />
+            <marker date="1413461511553" expanded="true" signature="4386:4445" placeholder="..." />
+            <marker date="1413461511553" expanded="true" signature="4564:4629" placeholder="..." />
+            <marker date="1413461511553" expanded="true" signature="4724:4789" placeholder="..." />
+            <marker date="1413461511553" expanded="true" signature="4879:4944" placeholder="..." />
+            <marker date="1413461511553" expanded="true" signature="5040:5134" placeholder="..." />
+            <marker date="1413461511553" expanded="false" signature="5328:5427" placeholder="..." />
+            <marker date="1413461511553" expanded="true" signature="6057:6156" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -569,7 +458,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/release/mkt.ad.js">
+    <entry file="file://$PROJECT_DIR$/release/mkt.popup.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="589">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -584,24 +473,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dev/js/mkt.ad.js">
+    <entry file="file://$PROJECT_DIR$/dev/js/mkt.popup.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="558" max-vertical-offset="2821">
           <caret line="18" column="36" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
           <folding>
-            <element signature="e#579#697#0" expanded="false" />
-            <element signature="e#736#1559#0" expanded="false" />
-            <element signature="e#1591#2293#0" expanded="false" />
-            <element signature="e#1644#1936#0" expanded="false" />
-            <element signature="e#1992#2287#0" expanded="false" />
-            <element signature="e#3513#3661#0" expanded="false" />
-            <element signature="e#3704#6211#0" expanded="false" />
-            <element signature="e#6808#6878#0" expanded="false" />
-            <element signature="e#9770#9854#0" expanded="false" />
-            <element signature="e#10187#10324#0" expanded="false" />
-            <element signature="e#10779#11208#0" expanded="false" />
-            <element signature="e#13484#14418#0" expanded="false" />
-            <marker date="1413202688310" expanded="false" signature="3909:4008" placeholder="..." />
+            <element signature="e#571#689#0" expanded="false" />
+            <element signature="e#728#1551#0" expanded="false" />
+            <element signature="e#1583#2319#0" expanded="false" />
+            <element signature="e#2018#2313#0" expanded="false" />
+            <element signature="e#2631#2717#0" expanded="false" />
+            <element signature="e#2726#3629#0" expanded="false" />
+            <element signature="e#4000#5199#0" expanded="false" />
+            <element signature="e#8435#8934#0" expanded="false" />
+            <element signature="e#12488#14279#0" expanded="false" />
+            <element signature="e#14289#14395#0" expanded="false" />
+            <element signature="e#15745#15956#0" expanded="false" />
+            <marker date="1413461511553" expanded="true" signature="4094:4202" placeholder="..." />
+            <marker date="1413461511553" expanded="true" signature="4386:4445" placeholder="..." />
+            <marker date="1413461511553" expanded="true" signature="4564:4629" placeholder="..." />
+            <marker date="1413461511553" expanded="true" signature="4724:4789" placeholder="..." />
+            <marker date="1413461511553" expanded="true" signature="4879:4944" placeholder="..." />
+            <marker date="1413461511553" expanded="true" signature="5040:5134" placeholder="..." />
+            <marker date="1413461511553" expanded="false" signature="5328:5427" placeholder="..." />
+            <marker date="1413461511553" expanded="true" signature="6057:6156" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -628,24 +523,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dev/js/mkt.ad.js">
+    <entry file="file://$PROJECT_DIR$/dev/js/mkt.popup.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="186" max-vertical-offset="2821">
           <caret line="10" column="62" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
           <folding>
-            <element signature="e#579#697#0" expanded="false" />
-            <element signature="e#736#1559#0" expanded="false" />
-            <element signature="e#1591#2293#0" expanded="false" />
-            <element signature="e#1644#1936#0" expanded="false" />
-            <element signature="e#1992#2287#0" expanded="false" />
-            <element signature="e#3513#3661#0" expanded="false" />
-            <element signature="e#3704#6211#0" expanded="false" />
-            <element signature="e#6808#6878#0" expanded="false" />
-            <element signature="e#9770#9854#0" expanded="false" />
-            <element signature="e#10187#10324#0" expanded="false" />
-            <element signature="e#10779#11208#0" expanded="false" />
-            <element signature="e#13484#14418#0" expanded="false" />
-            <marker date="1413202688310" expanded="false" signature="3909:4008" placeholder="..." />
+            <element signature="e#571#689#0" expanded="false" />
+            <element signature="e#728#1551#0" expanded="false" />
+            <element signature="e#1583#2319#0" expanded="false" />
+            <element signature="e#2018#2313#0" expanded="false" />
+            <element signature="e#2631#2717#0" expanded="false" />
+            <element signature="e#2726#3629#0" expanded="false" />
+            <element signature="e#4000#5199#0" expanded="false" />
+            <element signature="e#8435#8934#0" expanded="false" />
+            <element signature="e#12488#14279#0" expanded="false" />
+            <element signature="e#14289#14395#0" expanded="false" />
+            <element signature="e#15745#15956#0" expanded="false" />
+            <marker date="1413461511553" expanded="true" signature="4094:4202" placeholder="..." />
+            <marker date="1413461511553" expanded="true" signature="4386:4445" placeholder="..." />
+            <marker date="1413461511553" expanded="true" signature="4564:4629" placeholder="..." />
+            <marker date="1413461511553" expanded="true" signature="4724:4789" placeholder="..." />
+            <marker date="1413461511553" expanded="true" signature="4879:4944" placeholder="..." />
+            <marker date="1413461511553" expanded="true" signature="5040:5134" placeholder="..." />
+            <marker date="1413461511553" expanded="false" signature="5328:5427" placeholder="..." />
+            <marker date="1413461511553" expanded="true" signature="6057:6156" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -764,21 +665,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dev/css/popup.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="126" max-vertical-offset="1426">
-          <caret line="11" column="25" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ctrip_lizard/c.sales.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="8463">
-          <caret line="11" column="45" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dev/activeApp.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1674" max-vertical-offset="2914">
@@ -790,27 +676,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="9145">
           <caret line="117" column="9" selection-start-line="117" selection-start-column="9" selection-end-line="117" selection-end-column="9" />
-          <folding>
-            <element signature="e#200#581#0" expanded="false" />
-            <element signature="e#624#728#0" expanded="false" />
-            <element signature="e#770#3807#0" expanded="false" />
-            <element signature="e#3941#4846#0" expanded="false" />
-            <element signature="e#4886#5079#0" expanded="false" />
-            <element signature="e#5118#5424#0" expanded="false" />
-            <element signature="e#5457#5742#0" expanded="false" />
-            <element signature="e#5775#6059#0" expanded="false" />
-            <element signature="e#6133#6688#0" expanded="false" />
-            <element signature="e#6735#6817#0" expanded="false" />
-            <element signature="e#6947#7503#0" expanded="false" />
-            <element signature="e#7522#15718#0" expanded="false" />
-            <element signature="e#7532#7680#0" expanded="false" />
-            <element signature="e#10144#10533#0" expanded="false" />
-            <element signature="e#10572#10941#0" expanded="false" />
-            <element signature="e#10988#11250#0" expanded="false" />
-            <element signature="e#11280#15712#0" expanded="false" />
-            <element signature="e#18611#18858#0" expanded="false" />
-            <element signature="e#23793#23871#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -821,63 +686,84 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/release/mkt.ad.js">
+    <entry file="file://$PROJECT_DIR$/release/mkt.popup.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.109540634" vertical-offset="0" max-vertical-offset="849">
           <caret line="3" column="34" selection-start-line="3" selection-start-column="34" selection-end-line="3" selection-end-column="34" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ctrip_lizard/c.ui.ad.js">
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/HTML5.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="465" max-vertical-offset="47740">
-          <caret line="54" column="43" selection-start-line="54" selection-start-column="43" selection-end-line="54" selection-end-column="43" />
-          <folding>
-            <marker date="1413008325549" expanded="false" signature="1709:1723" placeholder="..." />
-            <marker date="1413008325549" expanded="false" signature="49307:49320" placeholder="..." />
-            <marker date="1413008325549" expanded="false" signature="61752:61860" placeholder="..." />
-            <marker date="1413008325549" expanded="false" signature="62000:62059" placeholder="..." />
-            <marker date="1413008325549" expanded="false" signature="62156:62221" placeholder="..." />
-            <marker date="1413008325549" expanded="false" signature="62431:62496" placeholder="..." />
-            <marker date="1413008325549" expanded="false" signature="62548:62642" placeholder="..." />
-          </folding>
+        <state vertical-scroll-proportion="0.33333334" vertical-offset="63050" max-vertical-offset="67580">
+          <caret line="2043" column="0" selection-start-line="2043" selection-start-column="0" selection-end-line="2043" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dev/ad.html">
+    <entry file="file://$PROJECT_DIR$/ctrip_lizard/c.sales.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-19.633333" vertical-offset="1054" max-vertical-offset="2325">
-          <caret line="53" column="62" selection-start-line="53" selection-start-column="26" selection-end-line="53" selection-end-column="26" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="6448" max-vertical-offset="8463">
+          <caret line="225" column="20" selection-start-line="225" selection-start-column="20" selection-end-line="225" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dev/css/popup.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1426">
+          <caret line="8" column="68" selection-start-line="8" selection-start-column="68" selection-end-line="8" selection-end-column="68" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/dev/js/mkt.base.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="17.557692" vertical-offset="5284" max-vertical-offset="26102">
-          <caret line="141" column="44" selection-start-line="141" selection-start-column="17" selection-end-line="141" selection-end-column="17" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="7347" max-vertical-offset="26505">
+          <caret line="237" column="4" selection-start-line="237" selection-start-column="0" selection-end-line="237" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dev/js/mkt.ad.js">
+    <entry file="file://$PROJECT_DIR$/dev/ad.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.07296651" vertical-offset="8154" max-vertical-offset="8990">
-          <caret line="417" column="12" selection-start-line="417" selection-start-column="0" selection-end-line="417" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1023" max-vertical-offset="3906">
+          <caret line="49" column="4" selection-start-line="49" selection-start-column="4" selection-end-line="49" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ctrip_lizard/c.ui.ad.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="46253" max-vertical-offset="47740">
+          <caret line="1500" column="47" selection-start-line="1500" selection-start-column="44" selection-end-line="1500" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dev/js/mkt.popup.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6196172" vertical-offset="5124" max-vertical-offset="9455">
+          <caret line="297" column="49" selection-start-line="297" selection-start-column="49" selection-end-line="297" selection-end-column="49" />
           <folding>
-            <element signature="e#579#697#0" expanded="false" />
-            <element signature="e#736#1559#0" expanded="false" />
-            <element signature="e#1591#2293#0" expanded="false" />
-            <element signature="e#1644#1936#0" expanded="false" />
-            <element signature="e#1992#2287#0" expanded="false" />
-            <element signature="e#3513#3661#0" expanded="false" />
-            <element signature="e#3704#6211#0" expanded="false" />
-            <element signature="e#6808#6878#0" expanded="false" />
-            <element signature="e#9770#9854#0" expanded="false" />
-            <element signature="e#10187#10324#0" expanded="false" />
-            <element signature="e#10779#11208#0" expanded="false" />
-            <element signature="e#13484#14418#0" expanded="false" />
-            <marker date="1413202688310" expanded="false" signature="3909:4008" placeholder="..." />
+            <element signature="e#571#689#0" expanded="false" />
+            <element signature="e#728#1551#0" expanded="false" />
+            <element signature="e#1583#2319#0" expanded="false" />
+            <element signature="e#2018#2313#0" expanded="false" />
+            <element signature="e#2631#2717#0" expanded="false" />
+            <element signature="e#2726#3629#0" expanded="false" />
+            <element signature="e#4000#5199#0" expanded="false" />
+            <element signature="e#8435#8934#0" expanded="false" />
+            <element signature="e#12488#14279#0" expanded="false" />
+            <element signature="e#14289#14395#0" expanded="false" />
+            <element signature="e#15745#15956#0" expanded="false" />
+            <marker date="1413461511553" expanded="true" signature="4094:4202" placeholder="..." />
+            <marker date="1413461511553" expanded="true" signature="4386:4445" placeholder="..." />
+            <marker date="1413461511553" expanded="true" signature="4564:4629" placeholder="..." />
+            <marker date="1413461511553" expanded="true" signature="4724:4789" placeholder="..." />
+            <marker date="1413461511553" expanded="true" signature="4879:4944" placeholder="..." />
+            <marker date="1413461511553" expanded="true" signature="5040:5134" placeholder="..." />
+            <marker date="1413461511553" expanded="false" signature="5328:5427" placeholder="..." />
+            <marker date="1413461511553" expanded="true" signature="6057:6156" placeholder="..." />
           </folding>
         </state>
       </provider>

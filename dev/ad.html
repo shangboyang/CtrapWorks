@@ -13,7 +13,7 @@
     <meta name="baidu-tc-cerfication" content="ba07d70ead40fe3171a72dc4099ed4e5">
     <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
     <link type="text/css" rel="stylesheet" href="css/mkt.css"/>
-    <link type="text/css" rel="stylesheet" href="css/popup.css"/>
+    <!--<link type="text/css" rel="stylesheet" href="css/popup.css"/>-->
 </head>
 <body>
     <h1 id="h1" style="padding-left: 50px;">Dev-Ad</h1>
@@ -47,9 +47,59 @@
             <!--<div id="close_icon"></div>-->
         <!--</div>-->
     <!--</div>-->
+    <script src="lib/zepto.min.js"></script>
     <script src="js/mkt.base.js"></script>
-    <script src="js/mkt.ad.js"></script>
+    <script src="js/mkt.popup.js"></script>
+    <script type="text/javascript">
+        /*
+    var str = "_Ctrip_CtripWireless_5.10";
+    function is59 () {
+        var version = str.slice(-10).replace(/[a-zA-Z]|\.|\_/g, "");
+//        var appInfo = JSON && JSON.parse(window.localStorage.getItem("APPINFO"));
+        if (!version) return false;
 
+        if (+version.substr(0, 1) > 5) {
+            return true;
+        } else if (+version.substr(0, 1) == 5) {
+           // version.slice(1).length > 1 ? +version.slice(1).substr(0, 1) > 9 : null;
+            //version.slice(2).length > 1 ? version.slice(2) : null;
+            if (version.slice(1).length > 1) {
+                if (+version.slice(1).substr(0, 1) <= 2) {
+                    return true;
+                }
+                return +version.slice(1).substr(0, 1) >= 9;
+            }
+            return +version.slice(1) >= 9;
+        }
+
+        return false;
+    }
+    console.log(is59 ());
+    Mkt.Ajax.submitRequest({
+        url: "text/a.txt",
+        type: "POST",
+        param: {
+
+        },
+        success: function (data) {
+
+        }
+    });
+    $.ajax({
+        url: "text/a.txt",
+        type: "POST",
+        dataType:"json",
+        data: {
+            alianceid:"1",
+            sourceid:"2"
+        },
+        success:function (data) {
+
+        }
+    })
+    */
+    </script>
+    <!--
     <script>
         var dom = Mkt.Dom;
         Mkt.Ad.Utils.EventUtil.addHandler(dom.getById("h1").elems[0], "click", function (e) {
@@ -66,5 +116,6 @@
         });
 
     </script>
+    -->
 </body>
 </html>

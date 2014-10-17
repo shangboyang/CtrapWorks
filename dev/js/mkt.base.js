@@ -260,6 +260,14 @@
     Mkt.Ajax.httpSuccess = function( xhr ){
         return xhr.status >= 200 && xhr.status < 300 || xhr.status == 304;
     };
+    Mkt.Ajax.serialize = function ( obj ) {
+        var paramArr = [];
+        if (!obj) return;
+        for (var prop in obj) {
+            paramArr.push(encodeURIComponent(prop) + "=" + encodeURIComponent(obj[prop]));
+        }
+        return paramArr.join("&");
+    };
     /*
      *  jsonCfg {url, type, successFn, errorFn, async, param }
      * */
@@ -268,18 +276,19 @@
 
         var self = this,
             xmlhttp = self.obj;
-
         xmlhttp.onreadystatechange = function () {
             if (xmlhttp.readyState == 4) {
                 if (self.httpSuccess(xmlhttp) && xmlhttp.responseText) {
-                    jsonCfg.success(xmlhttp.responseText);
+                    typeof jsonCfg.success === "function" && jsonCfg.success(xmlhttp.responseText);
                 } else {
-                    jsonCfg.error(xmlhttp.responseText);
+                    typeof jsonCfg.error === "function" && jsonCfg.error(xmlhttp.responseText);
                 }
             }
         };
+
         xmlhttp.open(jsonCfg.type, jsonCfg.url, jsonCfg.async || true);
-        xmlhttp.send(jsonCfg.param);
+        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xmlhttp.send(self.serialize(jsonCfg.param));
     };
 
     Mkt.Utils = {
@@ -530,6 +539,10 @@
                 Mkt.Ajax.submitRequest({
                     url: url,
                     type: "POST",
+                    param: {
+                        alianceid:"1",
+                        sourceid:"2"
+                    },
                     success: function (data) {
                         if (!JSON && typeof JSON.parse !== "function") return;
                         var _data = {};
