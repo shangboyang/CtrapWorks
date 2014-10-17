@@ -710,7 +710,6 @@
                     replaceContent();
                 }));
 
-                
 
             } else {
                 //若已经存储有渠道信息，则替换渠道的电话，下载地址信息
@@ -759,7 +758,7 @@
     /**
      * 唤醒及下载控制
      */
-
+    /*
     Mkt.Wake = (function () {
 
         var CTRIP_PROTOCOL = "ctrip://wireless",
@@ -840,7 +839,7 @@
         }
 
     }());
-
+    */
 
     window.Mkt = Mkt;
 

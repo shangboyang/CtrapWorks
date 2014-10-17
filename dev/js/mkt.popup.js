@@ -12,7 +12,8 @@
         // seo update
         referKeys: ["baidu", "google", "soso.com", "sogou", "so.com", "bing.com", "yahoo", "youdao",
             "so.360", "jike.com", "babylon.com", "ask.com", "avg.com", "easou.com",
-            "panguso.com", "yandex.com", "sm.cn", "chinaso"]
+            "panguso.com", "yandex.com", "sm.cn", "chinaso"],
+        appUrlId: "app_url" // hidden id - ctrip:
 
     };
 
@@ -149,35 +150,36 @@
                     ].join("");
                     break;
                 case 2:
-                    popupHtml = ['<div class="app-pop-mask" style="position:absolute;z-index:999;top:0;left:0;width:100%;height:100%;background-color:rgba(0,0,0,0.6);"></div>',
-                        '<div class="app-pop">','<div class="app-pop-box">','<div class="app-pop-close"></div>','<div class="app-pop-bd">',
-                        '<div class="app-pop-img">','<img src="images/app_pop_img.jpg" alt="">','</div>',
-                        '<div class="app-pop-btn">','<button class="app-pop-btn01">立即体验携程APP</button>',
-                        '<button class="app-pop-btn02"><i></i>联系携程客服</button>',
-                        '</div>','</div>','</div>','</div>'].join("");
+                    popupHtml = ['<div class="cui-mask"></div>', '<div class="dl_panel-bg" style="">',
+                        '<div class="dl_banner"></div>', '<div class="dl_banner-mob"></div>',
+                        '<i class="dl_ico-banner"></i>', '<i class="dl_btn-close"></i>',
+                        '<div class="dl_btn-wrap">',
+                        '<a class="dl_btn-download"><i class="dl_ico-download-bg"></i> 立即下载</a>',
+                        '<a class="dl_btn-tel" href="tel:"><i class="dl_ico-tel"></i> 电话预订</a>',
+                        '</div>', '</div>'].join("");
                     break;
                 case 3:
-                    popupHtml = ['<div class="app-pop-mask" style="position:absolute;z-index:999;top:0;left:0;width:100%;height:100%;background-color:rgba(0,0,0,0.6);"></div>',
-                        '<div class="app-pop">','<div class="app-pop-box">','<div class="app-pop-close"></div>','<div class="app-pop-bd">',
-                        '<div class="app-pop-img">','<img src="images/app_pop_img.jpg" alt="">','</div>',
-                        '<div class="app-pop-btn">','<button class="app-pop-btn01">立即体验携程APP</button>',
-                        '</div>','</div>','</div>','</div>'].join("");
+                    popupHtml = ['<div class="cui-mask"></div>', '<div class="dl_panel-bg" style="">',
+                        '<div class="dl_banner"></div>', '<div class="dl_banner-mob"></div>',
+                        '<i class="dl_ico-banner"></i>', '<i class="dl_btn-close"></i>',
+                        '<div class="dl_btn-wrap">',
+                        '<a class="dl_btn-download"><i class="dl_ico-download-bg"></i> 立即下载</a>',
+                        '</div>', '</div>'].join("");
                     break;
                 case 4:
-                    popupHtml = ['<div class="app-fix-bottom">',
-                        '<div class="app-close"></div>','<div class="app-text">',
-                        '<p class="app-text-title">APP预订专享价</p>',
-                        '<p class="app-text-cn">最高立减50%</p></div>',
-                        '<div class="app-btn-box"><a href="#" class="app-btn01">立即体验</a>',
-                        '<a href="tel:4000086666" class="app-btn02">联系客服</a></div></div>'].join("");
+                    popupHtml = ['<div class="dl_panel">', '<a class="dl_btn-close"></a>',
+                        '<div class="dl_cnt">', '<i class="dl_ico-logo"></i>',
+                        '<p>手机预订</p>', '<p class="dl_txt-i">比官网更优惠<span class="dl_txt-bg">50%</span></p>',
+                        '</div>', '<a class="dl_btn-download"><i class="dl_ico-download"></i>下载</a>',
+                        '</div>'].join("");
                     break;
+                /*
                 case 5:
                     popupHtml = ['<div class="app-fix-bottom">','<div class="app-close"></div>',
                         '<div class="app-text">','<p class="app-text-title">APP预订专享价</p>',
                         '<p class="app-text-cn">最高立减50%</p></div>',
                         '<div class="app-btn-box"><a href="#" class="app-btn01">立即体验</a></div></div>'].join("");
                     break;
-                /*
                 case 6:
                     popupHtml = ['<div class="app-fix-bottom">',
                         '<div class="app-close"></div>',
@@ -226,26 +228,26 @@
 
             var target = null,
                 showType = true,
-                activatePopupTime = null,//  Date类型 [废弃]
-                orgnElem = dom.getByClass( "se-popup" ) && dom.getByClass( "se-popup").elems.length > 0 ?
-                    dom.getByClass( "se-popup").elems[0] : null,// original center 浮层
-                centerElem = dom.getByClass( "app-pop" ) && dom.getByClass( "app-pop" ).elems.length > 0 ?
-                    dom.getByClass( "app-pop" ).elems[0] : null,// center 浮层
-                bottomElem = dom.getByClass( "app-fix-bottom" ) && dom.getByClass( "app-fix-bottom" ).elems.length > 0 ?
-                    dom.getByClass( "app-fix-bottom" ).elems[0] : null;// bottom 浮层
+                appUrlDom = dom.getById( Mkt.Ad.deCfg.appUrlId ).elems[0] || null, // view中ctrip隐藏域
+                orgnElem = dom.getByClass( "se-popup").elems[0] || null, // original center 浮层
+                centerElem = dom.getByClass( "dl_panel-bg" ).elems[0] || null, // New 大浮层
+                bottomElem = dom.getByClass( "dl_panel" ).elems[0] || null; // bottom 小浮层
 
-            //  主浮层 事件控制
             if (orgnElem && popupType === 1) {
+
                 eventUtil.addHandler(orgnElem, "click", function (e) {
                     target = e.target;
+                    console.log(target);
                     switch (target.className) {
                         case "se-close":
+                            console.log("close");
                             dom.hide(orgnElem);
-
+                            break;
+                        case "se-continue":
+                            dom.hide(orgnElem);
                             break;
                     }
                 });
-
 
             } else if (centerElem && (popupType === 2 || popupType == 3)) {
 
@@ -253,50 +255,39 @@
                     target = e.target;
                     switch (target.className) {
                         //  关闭popup按钮
-                        case "app-pop-close":
-
+                        case "dl_btn-close":
                             dom.hide(centerElem);
-                            dom.getByClass("app-pop-mask").hide();
-
+                            dom.getByClass("cui-mask").hide();
                             break;
                         // 立即体验 唤醒 or 下载 App
-                        case "app-pop-btn01":
+                        case "dl_btn-download":
                             console.log("立即体验咯~");
                             break;
-                        // 联系客服
-                        case "app-pop-btn02":
-//                            window.location.href = "tel:400-8888";
-
+                        /*
+                        case "dl_btn-tel":
                             break;
                         case "":
-//                            console.log(target.parentNode) ;
                             if (target.parentNode && target.parentNode.className === "app-pop-btn02") {
-                                console.log("联系客服咯");
                             }
                             break;
+                        */
                     }
-
                 });
 
             } else {
+                console.log(bottomElem)
                 // 底部浮层 事件控制
                 eventUtil.addHandler(bottomElem, "click", function (e) {
                     target = e.target;
-
-                    if (target.className.match("app-close")) {
-                        console.log("close");
+                    console.log(target);
+                    if (target.className == "dl_btn-close") {
                         dom.hide(bottomElem);
-
-
 //                        activatePopupTime = getActivateTime(Date.now());// formatted Date
 //                        showType = setPopupLocal(4, activatePopupTime);// set激活时间 调用30分钟激活策略
 //                        activatePopupByTimer(showType);
 
-                    } else if (target.className.match("app-btn01") || target.className.match("app-text-title")) {
+                    } else if (target.className == "dl_ico-download") {
                         console.log("activeApp or downloadApp");
-                    } else if (target.className.match("app-btn02")) {
-                        console.log("helloworld")
-//                        window.location.href = "tel:40088888888";
                     }
                 });
             }
@@ -312,12 +303,6 @@
                 popupLocalKey = Mkt.Ad.deCfg.KEY_POPUP || "";
 
 //            popupType = commonStore.getStoreParam(popupLocalKey, "popupType");// 优先以Local中为准
-
-            /*
-            if (popupType > 0) {
-                return popupType;
-            }
-            */
 
             // url中带有浮层参数sepopup，则根据浮层参数对应的值，展示不同样式浮层
             if (utils.getUrlParam(null, "sepopup")) {
@@ -346,9 +331,9 @@
                 }
                 return flag;
             }
-
+            // seo 进来
             if (referMatch()) {
-                popupType = 5;
+                popupType = 2;
                 return popupType;
             }
             // 自然流量
@@ -357,11 +342,7 @@
                 popupType = 1;
                 return popupType;
             }
-            // 黑名单
-//            if (true) {
-//                popupType = 9;
-//                return popupType;
-//            }
+            // blacklist
 
             return popupType;
         }
@@ -374,15 +355,17 @@
         function initDomCtrl (showType, popupType) {
 
             var footerElem = null,
-                maskElem = dom.getByClass("app-pop-mask").elems[0] || null,
-                centerElem = dom.getByClass("app-pop").elems[0] || null,
+                maskElem = dom.getByClass("cui-mask").elems[0] || null,
+                orgnElem = dom.getByClass( "se-popup").elems[0] || null, // original center 浮层
+                centerElem = dom.getByClass( "dl_panel-bg" ).elems[0] || null, // New 大浮层
+                bottomElem = dom.getByClass( "dl_panel" ).elems[0] || null, // bottom 小浮层
                 popupHtml = getPopupHtml( popupType ) || "";
-            console.log(Mkt);
+
             // 出现
             if (!showType) return;
 
             // 底部浮层 使用div footer
-            if (popupType && popupType !== 1) {
+            if (popupType && popupType > 3) {
 
                 if (dom.getById("footer").elems[0]) {
                     footerElem = dom.getById("footer").elems[0]
@@ -392,22 +375,18 @@
                     dom.appendChild(document.body, footerElem);
                 }
             }
-            // 添加dom元素
+            // delete and add dom
             if (popupType && popupHtml) {
-
                 if (popupType <= 3) {
-
+                    orgnElem && document.body.removeChild(orgnElem);
                     maskElem && document.body.removeChild(centerElem);
                     centerElem && document.body.removeChild();
                     dom.appendChild(document.body, popupHtml);
-
                 } else {
-
                     footerElem.innerHTML = "";
                     dom.appendChild(footerElem, popupHtml);
-
                 }
-
+                console.log(popupType)
                 bindPopupEvent( popupType );
             }
 
@@ -436,7 +415,7 @@
                 commonStore.setStore(popupLocalKey, popupLocalVal);
 
             }
-            console.log(popupLocalVal);
+
             // 如果全局参数为关闭 不执行浮层控制
             if (popupFlag === "close") {
                 return false;
@@ -447,19 +426,18 @@
 
         function initialize () {
 
-            var self = this,
-                showType = setPopupLocal(),
+            var showType = setPopupLocal(),
                 popupType = getPopupType() || 0;
 
             var popupCssElem = document.createElement("link");
             popupCssElem.type = "text/css";
             popupCssElem.rel = "stylesheet";
-            popupCssElem.href = "css/popup.css";
-            document.head.appendChild(popupCssElem);
+            popupCssElem.href = "http://webresource.c-ctrip.com/styles/distribution/jhpage/mob_mask.css?141017";
+            document.head  && document.head.appendChild(popupCssElem);
 
             setTimeout(function () {
-                initDomCtrl.call(self, showType, popupType);
-            }, 800);
+                initDomCtrl(showType, +popupType);
+            }, 0);
 
         }
 

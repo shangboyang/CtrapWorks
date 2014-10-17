@@ -37,6 +37,7 @@
             <li><div><a title="企业差旅" url="/webapp/corpctrip/index.html" url-url="/webapp/corpctrip/index.html">企业差旅</a></div></li>
         </ul>
     </nav>
+    <input id="app_url" type="hidden" value="8"/>
     <!--<div id="footer">-->
         <!--<div data-appurl="ctrip://wireless/ticket_inquire?&amp;extendSourceID=8888" id="dl_app" style="" class="fix_bottom">-->
             <!--<div id="icon_text" class="txt_middle">-->
@@ -75,16 +76,7 @@
         return false;
     }
     console.log(is59 ());
-    Mkt.Ajax.submitRequest({
-        url: "text/a.txt",
-        type: "POST",
-        param: {
 
-        },
-        success: function (data) {
-
-        }
-    });
     $.ajax({
         url: "text/a.txt",
         type: "POST",
@@ -117,5 +109,6 @@
 
     </script>
     -->
+
 </body>
 </html>
